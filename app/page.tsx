@@ -23,12 +23,15 @@ export default function Home() {
             <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
           </Link>
         </div>
-        <div className="flex items-center justify-center p-6 md:min-w-3/5 md:px-28 pb-12 md:py-12">
+        <div className="flex flex-col items-center justify-center p-6 md:min-w-3/5 md:px-28 pb-12 md:py-12">
+          <hr className="w-4/5 h-0.5 my-3.5 bg-emerald-500 border-0 self-end hidden md:block" />
+          <hr className="w-3/4 h-0.5 my-3.5 bg-emerald-500 border-0 self-end hidden md:block" />
+          <hr className="w-1/2 h-0.5 my-3.5 bg-emerald-500 border-0 self-end hidden md:block" />
           <Image
             src="/hero-desktop.webp"
-            width={1000}
+            width={900}
             height={760}
-            className="hidden md:block"
+            className="hidden md:block py-3.5"
             alt="Desktop Hero"
             priority
           />
@@ -39,6 +42,9 @@ export default function Home() {
             className="block md:hidden"
             alt="Mobile Hero"
           />
+          <hr className="w-1/2 h-0.5 my-3.5 bg-emerald-500 border-0 self-start hidden md:block" />
+          <hr className="w-3/4 h-0.5 my-3.5 bg-emerald-500 border-0 self-start hidden md:block" />
+          <hr className="w-4/5 h-0.5 my-3.5 bg-emerald-500 border-0 self-start hidden md:block" />
         </div>
       </div>
     </main>
