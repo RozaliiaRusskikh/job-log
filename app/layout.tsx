@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./ui/globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { nunito_sans } from "./ui/fonts";
 
 export const metadata: Metadata = {
-  title: "JobLogs | Track job applications",
+  title: {
+    template: "JobLogs | %s",
+    default: "JobLogs | Track job applications",
+  },
   description:
     "Stay on top of your job search by monitoring applications on our platform",
+  keywords: ["Job", "Applications", "Search", "Spreadsheet"],
 };
 
 export default function RootLayout({
@@ -17,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${nunito_sans.className} antialiased`}>{children}</body>
     </html>
   );
 }
