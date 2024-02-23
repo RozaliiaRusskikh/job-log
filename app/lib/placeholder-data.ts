@@ -35,4 +35,13 @@ const applications = [
     note: "Hello, LinkedIn",
     job_description_link: "https://www.linkedin.com",
   },
+  {
+    app_id: 1,
+    company: "Intergalactic Inc",
+    position: "Software Enginner",
+    status: "Applied",
+    date: 1708556209,
+    note: "Hello, Intergalactic",
+    job_description_link: "https://intergalactic.com/",
+  },
 ];
