@@ -1,5 +1,5 @@
-export type Application = {
-  app_id: string;
+export type ApplicationProp = {
+  app_id: number;
   company: string;
   position: string;
   status: string;

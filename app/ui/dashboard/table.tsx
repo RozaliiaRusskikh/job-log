@@ -1,9 +1,11 @@
 import Row from "./table-row";
+import { applications } from "@/app/lib/placeholder-data";
+import { ApplicationProp } from "@/app/lib/definitions";
 
-export default function Table() {
+const Table: React.FC = () => {
   return (
     <table className="table-fixed border-collapse border border-slate-400 shadow-lg w-full">
-      <thead className=" bg-gray-100">
+      <thead className=" bg-gray-100 text-left">
         <tr>
           <th className="border-collapse border border-slate-300 px-2 py-2 md:px-8 md:py-4">
             Company
@@ -23,8 +25,11 @@ export default function Table() {
         </tr>
       </thead>
       <tbody>
-        <Row />
+        {applications.map((application: ApplicationProp) => {
+          return <Row key={application.app_id} data={application} />;
+        })}
       </tbody>
     </table>
   );
-}
+};
+export default Table;

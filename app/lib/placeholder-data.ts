@@ -1,4 +1,4 @@
-const applications = [
+export const applications = [
   {
     app_id: 1,
     company: "Amazon",
