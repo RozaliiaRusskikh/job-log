@@ -1,8 +1,9 @@
 import Row from "./table-row";
-import { applications } from "@/app/lib/placeholder-data";
 import { ApplicationProp } from "@/app/lib/definitions";
 
-const Table: React.FC = () => {
+const Table: React.FC<{ applications: ApplicationProp[] }> = ({
+  applications,
+}) => {
   return (
     <table className="table-fixed border-collapse border border-slate-400 shadow-lg w-full">
       <thead className=" bg-gray-100 text-left">
