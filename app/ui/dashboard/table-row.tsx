@@ -51,10 +51,10 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
           {status}
         </p>
       </td>
-      <td className="hidden lg:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
+      <td className="hidden lg:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 whitespace-nowrap">
         {convertUnixToDateString(date)}
       </td>
-      <td className="border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 max-w-fit">
+      <td className="border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 max-w-prose">
         {note}
       </td>
       <td className="border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
