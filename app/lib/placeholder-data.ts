@@ -1,7 +1,7 @@
 export const applications = [
   {
     app_id: 1,
-    company: "Amazon",
+    company: "Amazon Amazon Ama A Vjhkjdfghdjfhg",
     position: "Software Enginner",
     status: "applied",
     date: 1708556209,
@@ -38,10 +38,10 @@ export const applications = [
   {
     app_id: 1,
     company: "Intergalactic Inc",
-    position: "Software Enginner",
+    position: "Software Engineer",
     status: "applied",
     date: 1708556209,
-    note: "Hello, Intergalactic",
+    note: "Hello, Intergalactic. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
     job_description_link: "https://intergalactic.com/",
   },
 ];
