@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Table from "@/app/ui/dashboard/table";
 import Info from "@/app/ui/dashboard/info";
 import { applications } from "@/app/lib/placeholder-data";
+import Search from "@/app/ui/dashboard/search";
 
 //applications should contain rejected items only!
 
@@ -17,6 +18,7 @@ const RejectedAppsPage = () => {
       </div>
       <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">
         <p className="font-bold pb-4 text-lg">Rejected Job Applications</p>
+        <Search />
         {!!applications?.length ? (
           <Table applications={applications} />
         ) : (
