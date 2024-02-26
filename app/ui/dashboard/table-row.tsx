@@ -8,14 +8,21 @@ import { PencilIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
 
 const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
-  const { company, position, status, date, note } = data;
+  const { company, position, status, date, note, job_description_link } = data;
   return (
     <tr className="hover:bg-gray-50 active:bg-emerald-100 align-top">
       <td className="hidden lg:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
         {company}
       </td>
       <td className="font-bold lg:font-normal leading-tight lg:leading-normal border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 text-gray-800">
-        {position}
+        <a
+          className="cursor-pointer hover:decoration-2 hover:decoration-emerald-500 hover:underline transition-all"
+          target="_blank"
+          href={job_description_link}
+        >
+          {" "}
+          {position}
+        </a>
         <dl className="lg:hidden">
           <dt className="sr-only">Company</dt>
           <dd>at {company},</dd>
