@@ -5,7 +5,7 @@ const Table: React.FC<{ applications: ApplicationProp[] }> = ({
   applications,
 }) => {
   return (
-    <table className="table-fixed border-collapse border border-slate-400 shadow-lg w-full">
+    <table className="table-auto border-collapse border border-slate-400 shadow-lg w-full">
       <thead className=" bg-gray-100 text-left">
         <tr>
           <th className="border-collapse border border-slate-300 px-2 py-2 md:px-8 md:py-4">
@@ -22,6 +22,9 @@ const Table: React.FC<{ applications: ApplicationProp[] }> = ({
           </th>
           <th className="border-collapse border border-slate-300 px-2 py-2 md:px-8 md:py-4">
             Note
+          </th>
+          <th className="border-collapse border border-slate-300 px-2 py-2 md:px-8 md:py-4">
+            Actions
           </th>
         </tr>
       </thead>
