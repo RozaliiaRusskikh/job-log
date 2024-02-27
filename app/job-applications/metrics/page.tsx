@@ -32,7 +32,7 @@ const Metrics = () => {
           no data to display.
         </p>
       )}
-      <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
+      <div className="gap-4 w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">
         <Tips />
       </div>
     </section>
