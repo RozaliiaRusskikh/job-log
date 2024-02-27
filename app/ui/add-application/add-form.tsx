@@ -64,6 +64,22 @@ const AddJobApplicationButton = () => {
           <div>
             <label
               className="mb-3 mt-5 block text-sm font-medium text-gray-900"
+              htmlFor="position"
+            >
+              Job Description Link
+            </label>
+            <input
+              className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
+              id="jb-link"
+              type="jb-link"
+              name="jb-link"
+              placeholder="Enter a job description link"
+              required
+            />
+          </div>
+          <div>
+            <label
+              className="mb-3 mt-5 block text-sm font-medium text-gray-900"
               htmlFor="note"
             >
               Note
