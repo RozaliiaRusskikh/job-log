@@ -25,7 +25,6 @@ const CustomModal: React.FC<CustomModalProps> = ({
       top: "50%",
       left: "50%",
       bottom: "auto",
-      right: "auto",
       transform: "translate(-50%, -50%)",
     },
   };

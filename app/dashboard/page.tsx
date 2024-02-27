@@ -6,6 +6,7 @@ import Search from "../ui/dashboard/search";
 import ApplicationStatus from "../ui/dashboard/application-status";
 import StatusBreakdown from "../ui/dashboard/status-breakdown";
 import SuccessRate from "../ui/dashboard/success-rate";
+import AddJobApplicationButton from "../ui/add-application/add-button";
 
 export const metadata: Metadata = {
   title: "Dashboard |  Active Applications",
@@ -42,6 +43,7 @@ const Dashboard = () => {
           </p>
         )}
       </div>
+      <AddJobApplicationButton />
     </section>
   );
 };
