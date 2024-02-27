@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const JobApplications = () => {
   return (
-    <section className="text-sm md:text-base sm:h-screen">
+    <section className="text-sm md:text-base min-h-screen">
       <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">
         <h1 className="font-bold pb-4 text-md md:text-lg">
           Job Application List
