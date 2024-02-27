@@ -14,16 +14,21 @@ export const metadata: Metadata = {
 const Dashboard = () => {
   return (
     <section className="text-sm md:text-base">
-      <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
-        <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
-          <div>
-            <TotalNumberStatistics applications={applications} type="active" />
-            <StatusBreakdown applications={applications} />
+      {!!applications?.length && (
+        <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
+          <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
+            <div>
+              <TotalNumberStatistics
+                applications={applications}
+                type="active"
+              />
+              <StatusBreakdown applications={applications} />
+            </div>
+            <ApplicationStatus applications={applications} />
           </div>
-          <ApplicationStatus applications={applications} />
+          <SuccessRate applications={applications} />
         </div>
-        <SuccessRate applications={applications} />
-      </div>
+      )}
       <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">
         <h1 className="font-bold pb-4 text-md md:text-lg">
           Active Job Applications
@@ -32,7 +37,7 @@ const Dashboard = () => {
         {!!applications?.length ? (
           <Table applications={applications} />
         ) : (
-          <p className="text-center py-3 italic">
+          <p className="text-center py-3 italic h-screen">
             It looks like you haven't added any job applications yet
           </p>
         )}
