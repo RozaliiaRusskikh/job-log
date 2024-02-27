@@ -5,6 +5,7 @@ import StatusBreakdown from "@/app/ui/metrics/status-breakdown";
 import SuccessRate from "@/app/ui/metrics/success-rate";
 import RejectionRate from "@/app/ui/metrics/rejection-rate";
 import ApplicationStatus from "@/app/ui/metrics/application-status";
+import Tips from "@/app/ui/metrics/tips";
 
 export const metadata: Metadata = {
   title: "Job Applications |  Metrics",
@@ -23,10 +24,7 @@ const Metrics = () => {
             </div>
             <ApplicationStatus applications={applications} />
           </div>
-          <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
-            <RejectionRate applications={applications} />
-            <RejectionRate applications={applications} />
-          </div>
+          <RejectionRate applications={applications} />
         </div>
       ) : (
         <p className="text-center py-16 italic h-screen">
@@ -34,6 +32,9 @@ const Metrics = () => {
           no data to display.
         </p>
       )}
+      <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
+        <Tips />
+      </div>
     </section>
   );
 };

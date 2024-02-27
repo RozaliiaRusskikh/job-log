@@ -91,6 +91,16 @@ const SuccessRate: React.FC<SuccessRateProps> = ({ applications }) => {
             </div>
           );
         })}
+        <p className="my-2">
+          For tips on optimizing your job hunt, please refer to{" "}
+          <a
+            href="#job-hunt-tactics"
+            className="text-amber-500 cursor-pointer hover:underline transition-all"
+            onClick={toggleModal}
+          >
+            Optimizing Job Hunt: 10 Essential Tactics
+          </a>
+        </p>
       </CustomModal>
     </div>
   );
