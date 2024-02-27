@@ -2,7 +2,7 @@
 import { ApplicationProp } from "@/app/lib/definitions";
 import { StarIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import CustomModal from "./modal";
+import CustomModal from "../job-application-table/modal";
 
 interface SuccessRateProps {
   applications: ApplicationProp[];

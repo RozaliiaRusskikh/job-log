@@ -2,7 +2,7 @@
 
 import { PlusCircleIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import CustomModal from "../dashboard/modal";
+import CustomModal from "../job-application-table/modal";
 
 const AddJobApplicationButton = () => {
   const handleAddJobApplication = () => {};

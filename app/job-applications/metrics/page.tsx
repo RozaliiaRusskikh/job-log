@@ -1,18 +1,15 @@
 import { Metadata } from "next";
-import Table from "@/app/ui/dashboard/table";
-import TotalNumberStatistics from "@/app/ui/dashboard/total-number-statistics";
+import Table from "@/app/ui/job-application-table/table";
+import TotalNumberStatistics from "@/app/ui/metrics/total-number-statistics";
 import { applications } from "@/app/lib/placeholder-data";
-import Search from "@/app/ui/dashboard/search";
-import RejectionRate from "@/app/ui/dashboard/rejection-rate";
-
-// applications should contain rejected items only!
-// also there should be all applications for rejection status
+import Search from "@/app/ui/job-application-table/search";
+import RejectionRate from "@/app/ui/metrics/rejection-rate";
 
 export const metadata: Metadata = {
-  title: "Dashboard |  Rejected Applications",
+  title: "Job Applications |  Metrics",
 };
 
-const RejectedAppsPage = () => {
+const Metrics = () => {
   return (
     <section className="text-sm md:text-base">
       {!!applications?.length && (
@@ -37,4 +34,4 @@ const RejectedAppsPage = () => {
   );
 };
 
-export default RejectedAppsPage;
+export default Metrics;

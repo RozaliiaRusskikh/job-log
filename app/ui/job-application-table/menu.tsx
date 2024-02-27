@@ -5,8 +5,8 @@ import { usePathname } from "next/navigation";
 
 export default function Menu() {
   const navMenu = [
-    { title: "Active", path: "/dashboard" },
-    { title: "Rejected", path: "/dashboard/rejected-job-applications" },
+    { title: "Applications", path: "/job-applications" },
+    { title: "Metrics", path: "/job-applications/metrics" },
   ];
 
   const pathname = usePathname();

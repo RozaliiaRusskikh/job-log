@@ -1,18 +1,18 @@
 import { Metadata } from "next";
-import Table from "../ui/dashboard/table";
+import Table from "../ui/job-application-table/table";
 import { applications } from "@/app/lib/placeholder-data";
-import TotalNumberStatistics from "../ui/dashboard/total-number-statistics";
-import Search from "../ui/dashboard/search";
-import ApplicationStatus from "../ui/dashboard/application-status";
-import StatusBreakdown from "../ui/dashboard/status-breakdown";
-import SuccessRate from "../ui/dashboard/success-rate";
+import TotalNumberStatistics from "../ui/metrics/total-number-statistics";
+import Search from "../ui/job-application-table/search";
+import ApplicationStatus from "../ui/metrics/application-status";
+import StatusBreakdown from "../ui/metrics/status-breakdown";
+import SuccessRate from "../ui/metrics/success-rate";
 import AddJobApplicationButton from "../ui/add-application/add-form";
 
 export const metadata: Metadata = {
-  title: "Dashboard |  Active Applications",
+  title: "Job Applications |  Table",
 };
 
-const Dashboard = () => {
+const JobApplications = () => {
   return (
     <section className="text-sm md:text-base">
       {!!applications?.length && (
@@ -48,4 +48,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default JobApplications;

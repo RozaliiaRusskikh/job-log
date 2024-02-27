@@ -2,7 +2,7 @@
 import { ApplicationProp } from "@/app/lib/definitions";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import CustomModal from "./modal";
+import CustomModal from "../job-application-table/modal";
 
 interface RejectionRateProps {
   applications: ApplicationProp[];
