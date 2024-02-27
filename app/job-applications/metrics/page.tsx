@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const Metrics = () => {
   return (
     <section className="text-sm md:text-base sm:h-screen">
-      {!!applications?.length && (
+      {!!applications?.length ? (
         <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
           <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
             <div>
@@ -28,6 +28,11 @@ const Metrics = () => {
           <SuccessRate applications={applications} />
           <RejectionRate applications={applications} />
         </div>
+      ) : (
+        <p className="text-center py-16 italic h-screen">
+          It looks like you haven't added any job applications yet so there is
+          no data to display.
+        </p>
       )}
     </section>
   );
