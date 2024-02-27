@@ -20,7 +20,7 @@ const TotalNumberStatistics: React.FC<TotalNumberStatisticsProps> = ({
           className={clsx(
             "font-bold rounded-full px-4 py-1 mx-auto text-center max-w-fit",
             {
-              "bg-emerald-400": type === "active",
+              "border border-gray-400": type === "active",
               "bg-gray-300": type === "rejected",
             }
           )}
