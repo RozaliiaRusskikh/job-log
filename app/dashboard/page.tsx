@@ -25,9 +25,9 @@ const Dashboard = () => {
         <SuccessRate applications={applications} />
       </div>
       <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">
-        <p className="font-bold pb-4 text-md md:text-lg">
+        <h1 className="font-bold pb-4 text-md md:text-lg">
           Active Job Applications
-        </p>
+        </h1>
         <Search />
         {!!applications?.length ? (
           <Table applications={applications} />

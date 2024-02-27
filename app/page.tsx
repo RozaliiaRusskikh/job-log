@@ -11,11 +11,11 @@ export default function Home() {
       </div>
       <div className="mt-4 flex grow flex-col gap-2 md:gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-3/5 md:px-16">
-          <p className={`text-xl text-primary md:text-3xl md:leading-normal`}>
+          <h1 className={`text-xl text-primary md:text-3xl md:leading-normal`}>
             <strong>Welcome to JobLogs</strong> - the simple way to stay on top
             of your job applications and manage them without the need of
             spreadsheets
-          </p>
+          </h1>
           <Link
             href="/login"
             className="font-bold flex items-center gap-5 self-start rounded-lg bg-emerald-500 px-6 py-3 text-sm text-white transition-colors hover:bg-emerald-600 md:text-base"
