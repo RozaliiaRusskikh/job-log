@@ -68,13 +68,13 @@ const AddJobApplicationButton = () => {
             >
               Note
             </label>
-            <input
+            <textarea
               className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
               id="note"
-              type="note"
               name="note"
+              rows={3}
+              cols={200}
               placeholder="Enter a note regarding the job description"
-              required
             />
           </div>
           <LoginButton />
