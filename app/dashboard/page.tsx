@@ -5,6 +5,7 @@ import TotalNumberStatistics from "../ui/dashboard/total-number-statistics";
 import Search from "../ui/dashboard/search";
 import ApplicationStatus from "../ui/dashboard/application-status";
 import StatusBreakdown from "../ui/dashboard/status-breakdown";
+import SuccessRate from "../ui/dashboard/success-rate";
 
 export const metadata: Metadata = {
   title: "Dashboard |  Active Applications",
@@ -13,12 +14,15 @@ export const metadata: Metadata = {
 const Dashboard = () => {
   return (
     <section className="text-sm md:text-base">
-      <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
-        <div>
-          <TotalNumberStatistics applications={applications} type="active" />
-          <StatusBreakdown applications={applications} />
+      <div className=" gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
+        <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
+          <div>
+            <TotalNumberStatistics applications={applications} type="active" />
+            <StatusBreakdown applications={applications} />
+          </div>
+          <ApplicationStatus applications={applications} />
         </div>
-        <ApplicationStatus applications={applications} />
+        <SuccessRate applications={applications} />
       </div>
       <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">
         <p className="font-bold pb-4 text-md md:text-lg">

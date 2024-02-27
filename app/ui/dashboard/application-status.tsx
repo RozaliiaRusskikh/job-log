@@ -66,7 +66,9 @@ const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
 
   return (
     <div className="sm:max-w-[60%]">
-      <p className="font-semibold text-center">Application Status Breakdown</p>
+      <p className="font-semibold text-center italic">
+        Application Status Breakdown
+      </p>
       <Pie data={chartData} />
     </div>
   );
