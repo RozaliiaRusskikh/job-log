@@ -2,7 +2,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 const Search = () => {
   return (
-    <div className="relative flex flex-1 mb-3">
+    <div className="relative flex flex-1 mb-3 xl:w-2/3">
       <label htmlFor="search" className="sr-only">
         Search
       </label>

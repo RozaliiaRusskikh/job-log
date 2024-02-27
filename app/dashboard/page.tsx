@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 
 const Dashboard = () => {
   return (
-    <section>
-      <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto flex gap-4">
+    <section className="text-sm md:text-base">
+      <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
         <TotalNumberStatistics applications={applications} type="active" />
         <ApplicationStatus applications={applications} />
       </div>

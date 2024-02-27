@@ -12,14 +12,16 @@ const TotalNumberStatistics: React.FC<TotalNumberStatisticsProps> = ({
 }) => {
   return (
     <div className="flex flex-col text-sm md:text-base">
-      <div className="mt-1 mb-4 self-center border p-3 border-slate-300 rounded-md leading-7">
-        <p className="font-semibold">Total number of {type} applications:</p>
+      <div className="mt-1 mb-4 self-center border sm:p-3 p-2 border-slate-300 rounded-md leading-7">
+        <p className="font-semibold text-center leaading-7 sm:leading-normal">
+          Total number of {type} applications:
+        </p>
         <p
           className={clsx(
             "font-bold rounded-full px-4 py-1 mx-auto text-center max-w-fit",
             {
               "bg-emerald-400": type === "active",
-              "bg-rose-400": type === "rejected",
+              "bg-gray-300": type === "rejected",
             }
           )}
         >

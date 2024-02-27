@@ -3,36 +3,50 @@ import { ApplicationProp } from "@/app/lib/definitions";
 import Chart from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 import { Pie } from "react-chartjs-2";
-import { useState } from "react";
 
 Chart.register(CategoryScale);
+
+interface StatusCounts {
+  [status: string]: number;
+}
 
 const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
   applications,
 }) => {
   // Calculate status counts
-  const statusCounts = applications.reduce((counts, app) => {
-    counts[app.status] = (counts[app.status] || 0) + 1;
-    return counts;
-  }, {});
+  const statusCounts: StatusCounts = applications.reduce(
+    (counts: StatusCounts, app) => {
+      counts[app.status] = (counts[app.status] || 0) + 1;
+      return counts;
+    },
+    {}
+  );
 
   // Extract labels and counts for the chart
   const labels = Object.keys(statusCounts);
   const counts = Object.values(statusCounts);
 
+  // Calculate total count
+  const totalCount = counts.reduce((total, count) => total + count, 0);
+
+  // Calculate percentages
+  const percentages = counts.map((count) =>
+    ((count / totalCount) * 100).toFixed(2)
+  );
+
   // Define colors based on status
   const backgroundColors = labels.map((status) => {
     switch (status) {
       case "applied":
-        return "rgba(173, 181, 189, 0.6)"; // bg-gray-200
+        return "rgba(173, 181, 189, 0.6)";
       case "rejected":
-        return "rgba(247, 64, 78, 0.6)"; // bg-rose-400
+        return "rgba(247, 64, 78, 0.6)";
       case "interviewing":
-        return "rgba(251, 191, 36, 0.6)"; // bg-yellow-400
+        return "rgba(251, 191, 36, 0.6)";
       case "offer":
-        return "rgba(0, 214, 132, 0.6)"; // bg-emerald-400
+        return "rgba(0, 214, 132, 0.6)";
       default:
-        return "rgba(0, 0, 0, 0.6)"; // Default color
+        return "rgba(0, 0, 0, 0.6)";
     }
   });
 
@@ -41,8 +55,8 @@ const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
     labels: labels,
     datasets: [
       {
-        label: "Application Status",
-        data: counts,
+        label: "percentage",
+        data: percentages,
         backgroundColor: backgroundColors,
         borderColor: backgroundColors.map((color) => color.replace("0.6", "1")), // Adjust border color
         borderWidth: 1,
@@ -51,8 +65,8 @@ const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
   };
 
   return (
-    <div>
-      <p>Application Status Breakdown</p>
+    <div className="sm:max-w-[60%]">
+      <p className="font-semibold text-center">Application Status Breakdown</p>
       <Pie data={chartData} />
     </div>
   );
