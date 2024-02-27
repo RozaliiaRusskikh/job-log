@@ -5,7 +5,8 @@ import { applications } from "@/app/lib/placeholder-data";
 import Search from "@/app/ui/dashboard/search";
 import RejectionRate from "@/app/ui/dashboard/rejection-rate";
 
-//applications should contain rejected items only!
+// applications should contain rejected items only!
+// also there should be all applications for rejection status
 
 export const metadata: Metadata = {
   title: "Dashboard |  Rejected Applications",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 const RejectedAppsPage = () => {
   return (
     <section className="text-sm md:text-base">
-      <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto flex flex-col sm:flex-row justify-center sm:items-baseline gap-5">
+      <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto flex flex-col sm:flex-row justify-center sm:items-baseline  gap:2 md:gap-5">
         <TotalNumberStatistics applications={applications} type="rejected" />
         <RejectionRate applications={applications} />
       </div>

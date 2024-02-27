@@ -70,7 +70,7 @@ const RejectionRate: React.FC<RejectionRateProps> = ({ applications }) => {
         <div className="flex justify-center items-center">
           <XCircleIcon
             onClick={toggleModal}
-            className="h-[30px] w-[30px] text-gray-700 cursor-pointer animate-pulse hover:scale-105 transition-transform"
+            className="h-[30px] w-[30px] cursor-pointer animate-pulse hover:scale-105 transition-transform text-rose-600"
           />
           <p className="font-bold px-1 py-1 text-center md:text-lg">
             {calculateRejectionRate(applications)}%
