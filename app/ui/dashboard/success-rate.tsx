@@ -65,7 +65,7 @@ const SuccessRate: React.FC<SuccessRateProps> = ({ applications }) => {
         <div className="flex justify-center items-center">
           <StarIcon
             onClick={toggleModal}
-            className="h-[30px] w-[30px] text-gray-400 cursor-pointer animate-pulse hover:scale-105 transition-transform"
+            className="h-[30px] w-[30px] text-gray-700 cursor-pointer animate-pulse hover:scale-105 transition-transform"
           />
           <p className="font-bold px-1 py-1 text-center md:text-lg">
             {calculateSuccessRate(applications)}%
@@ -77,12 +77,12 @@ const SuccessRate: React.FC<SuccessRateProps> = ({ applications }) => {
         onClose={toggleModal}
         label="Application success rate"
       >
-        <h2 className="text-center font-bold text-md md:text-lg">
+        <h2 className="text-center font-bold text-md md:text-lg mt-7">
           Success Rate Categories
         </h2>
-        {successCategories.map((category) => {
+        {successCategories.map((category, index) => {
           return (
-            <div className="text-sm md:text-base my-2">
+            <div key={index} className="text-sm md:text-base my-2">
               <h2 className="font-bold underline decoration-emerald-500 decoration-2 text-gray-900">
                 {category.name}: {category.range}
               </h2>
