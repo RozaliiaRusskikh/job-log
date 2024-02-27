@@ -1,11 +1,7 @@
 import { Metadata } from "next";
 import Table from "../ui/job-application-table/table";
 import { applications } from "@/app/lib/placeholder-data";
-import TotalNumberStatistics from "../ui/metrics/total-number-statistics";
 import Search from "../ui/job-application-table/search";
-import ApplicationStatus from "../ui/metrics/application-status";
-import StatusBreakdown from "../ui/metrics/status-breakdown";
-import SuccessRate from "../ui/metrics/success-rate";
 import AddJobApplicationButton from "../ui/add-application/add-form";
 
 export const metadata: Metadata = {
@@ -14,25 +10,10 @@ export const metadata: Metadata = {
 
 const JobApplications = () => {
   return (
-    <section className="text-sm md:text-base">
-      {!!applications?.length && (
-        <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
-          <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
-            <div>
-              <TotalNumberStatistics
-                applications={applications}
-                type="active"
-              />
-              <StatusBreakdown applications={applications} />
-            </div>
-            <ApplicationStatus applications={applications} />
-          </div>
-          <SuccessRate applications={applications} />
-        </div>
-      )}
+    <section className="text-sm md:text-base sm:h-screen">
       <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">
         <h1 className="font-bold pb-4 text-md md:text-lg">
-          Active Job Applications
+          Job Application List
         </h1>
         <Search />
         {!!applications?.length ? (

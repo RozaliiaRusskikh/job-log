@@ -13,14 +13,15 @@ export default function Home() {
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-3/5 md:px-16">
           <h1 className={`text-xl text-primary md:text-3xl md:leading-normal`}>
             <strong>Welcome to JobLogs</strong> - the simple way to stay on top
-            of your job applications and manage them without the need of
-            spreadsheets
+            of your job applications, manage them without the need of
+            spreadsheets, and gain valuable insights into your job search
           </h1>
           <Link
             href="/login"
             className="font-bold flex items-center gap-5 self-start rounded-lg bg-emerald-500 px-6 py-3 text-sm text-white transition-colors hover:bg-emerald-600 md:text-base"
           >
-            <span>Log in</span> <ArrowRightIcon className="w-5 md:w-6" />
+            <span>Log in</span>{" "}
+            <ArrowRightIcon className="w-5 md:w-6 animate-pulse" />
           </Link>
         </div>
         <div className="flex flex-col items-center justify-center p-6 md:min-w-3/5 md:px-28 pb-12 md:py-12">
