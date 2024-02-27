@@ -40,6 +40,7 @@ const AddJobApplicationButton = () => {
               htmlFor="company"
             >
               Company
+              <span className="text-rose-400 pl-px">*</span>
             </label>
             <input
               className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
@@ -56,6 +57,7 @@ const AddJobApplicationButton = () => {
               htmlFor="position"
             >
               Position
+              <span className="text-rose-400 pl-px">*</span>
             </label>
             <input
               className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
@@ -72,6 +74,7 @@ const AddJobApplicationButton = () => {
               htmlFor="position"
             >
               Job Description Link
+              <span className="text-rose-400 pl-px">*</span>
             </label>
             <input
               className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
@@ -110,7 +113,7 @@ export default AddJobApplicationButton;
 function LoginButton() {
   return (
     <button className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold">
-      Log in
+      Add item
     </button>
   );
 }
