@@ -14,12 +14,17 @@ const AddJobApplicationButton = () => {
 
   return (
     <>
-      <button
-        onClick={toggleModal}
-        className="fixed bottom-5 right-7 md:bottom-10 md:right-12 rounded-full shadow-md bg-slate-100 opacity-80"
-      >
-        <PlusCircleIcon className="w-[75px] h-[75px] text-emerald-700 hover:text-slate-500 transition-colors" />
-      </button>
+      <div className="fixed bottom-5 right-7 md:bottom-10 md:right-12">
+        <button
+          onClick={toggleModal}
+          className="relative rounded-full shadow-md bg-slate-100 opacity-80 group"
+        >
+          <PlusCircleIcon className="w-16 h-16 md:w-20 md:h-20 text-emerald-700 hover:text-slate-500 transition-colors" />
+          <span className="hidden absolute bottom-full left-1/2 transform -translate-x-1/2 text-sm md:text-base  text-emerald-700 font-bold group-hover:block transition-all">
+            Add Job Application
+          </span>
+        </button>
+      </div>
       <CustomModal
         isOpen={isModalOpen}
         onClose={toggleModal}
@@ -31,7 +36,7 @@ const AddJobApplicationButton = () => {
         <form className="w-full">
           <div>
             <label
-              className="mb-3 mt-5 block text-sm font-medium text-gray-900"
+              className="mb-2 mt-5 block text-sm font-semibold text-gray-900"
               htmlFor="company"
             >
               Company
@@ -47,7 +52,7 @@ const AddJobApplicationButton = () => {
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-sm font-medium text-gray-900"
+              className="mb-2 mt-5 block text-sm font-semibold text-gray-900"
               htmlFor="position"
             >
               Position
@@ -63,7 +68,7 @@ const AddJobApplicationButton = () => {
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-sm font-medium text-gray-900"
+              className="mb-2 mt-5 block text-sm font-semibold text-gray-900"
               htmlFor="position"
             >
               Job Description Link
@@ -79,7 +84,7 @@ const AddJobApplicationButton = () => {
           </div>
           <div>
             <label
-              className="mb-3 mt-5 block text-sm font-medium text-gray-900"
+              className="mb-2 mt-5 block text-sm font-semibold text-gray-900"
               htmlFor="note"
             >
               Note
