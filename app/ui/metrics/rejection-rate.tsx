@@ -40,7 +40,7 @@ const RejectionRate: React.FC<RejectionRateProps> = ({ applications }) => {
       name: "Very High (Not Suitable)",
       range: "51% and above",
       description:
-        "A very high rejection rate indicates that many of your applications are not meeting fundamental job requirements or aligning with employers' needs. Take this as an opportunity to rethink your strategy and focus on positions where you're a better fit.",
+        "A very high rejection rate indicates that many of your applications are not meeting fundamental job requirements or aligning with employers' needs. Take this as an opportunity to rethink your strategy and focus on positions where you're a better fit, while also considering seeking feedback on your applications to pinpoint areas for improvement. Additionally, reevaluate your resume, update your profile including LinkedIn, boost your skills by obtaining certificates or building projects to showcase your capabilities.",
     },
   ];
 

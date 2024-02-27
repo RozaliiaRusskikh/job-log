@@ -15,18 +15,18 @@ const Metrics = () => {
     <section className="text-sm md:text-base sm:h-screen">
       {!!applications?.length ? (
         <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
+          <SuccessRate applications={applications} />
           <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
             <div>
-              <TotalNumberStatistics
-                applications={applications}
-                type="active"
-              />
+              <TotalNumberStatistics applications={applications} />
               <StatusBreakdown applications={applications} />
             </div>
             <ApplicationStatus applications={applications} />
           </div>
-          <SuccessRate applications={applications} />
-          <RejectionRate applications={applications} />
+          <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
+            <RejectionRate applications={applications} />
+            <RejectionRate applications={applications} />
+          </div>
         </div>
       ) : (
         <p className="text-center py-16 italic h-screen">
