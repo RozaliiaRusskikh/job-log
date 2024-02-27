@@ -19,25 +19,25 @@ const RejectionRate: React.FC<RejectionRateProps> = ({ applications }) => {
         "If you're experiencing no rejected applications, it means every job application aligns perfectly with your qualifications, skills, and the employer's needs. Keep up the good work!",
     },
     {
-      name: "Strong Compatibility",
+      name: "Minimal (Strong Compatibility)",
       range: "1% - 10%",
       description:
-        "A minimal to low rejection rate indicates that the majority of your applications closely match the job criteria. You're on the right track!",
+        "A minimal rejection rate indicates that the majority of your applications closely match the job criteria. You're on the right track!",
     },
     {
-      name: "Partial Alignment",
+      name: "Moderate (Partial Alignment)",
       range: "11% - 25%",
       description:
         "A moderate rejection rate suggests that some of your applications are close, but not quite hitting the mark. Consider fine-tuning your application strategy and addressing any gaps in skills or experience.",
     },
     {
-      name: "Marginally Qualified",
+      name: "High (Marginally Qualified)",
       range: "26% - 50%",
       description:
         "A high rejection rate signals that a significant portion of your applications lack essential qualifications or experience. It's time to reassess your approach and possibly upgrade your skills or qualifications.",
     },
     {
-      name: "Not Suitable",
+      name: "Very High (Not Suitable)",
       range: "51% and above",
       description:
         "A very high rejection rate indicates that many of your applications are not meeting fundamental job requirements or aligning with employers' needs. Take this as an opportunity to rethink your strategy and focus on positions where you're a better fit.",
