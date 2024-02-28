@@ -112,7 +112,7 @@ export default AddJobApplicationButton;
 
 function LoginButton() {
   return (
-    <button className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold">
+    <button className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 ">
       Add item
     </button>
   );
