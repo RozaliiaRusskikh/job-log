@@ -47,7 +47,7 @@ const RateItem: React.FC<RateItemProps> = ({
 
   return (
     <div className="flex flex-col text-sm md:text-base">
-      <div className="mt-1 mb-4 self-center border sm:p-3 p-2 border-slate-300 rounded-md leading-7">
+      <div className="mt-1 mb-4 self-center border sm:p-3 p-2 border-slate-300 rounded-md leading-7 shadow-md">
         <p className="font-semibold text-center leaading-7 sm:leading-normal italic">
           {title}
         </p>
