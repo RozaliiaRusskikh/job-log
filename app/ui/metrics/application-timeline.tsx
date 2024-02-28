@@ -43,7 +43,7 @@ const ApplicationTimeline: React.FC<{
     labels: months,
     datasets: [
       {
-        label: "Number of Job Applications",
+        label: "Amount of job applications",
         data: monthlyApplicationCounts,
         backgroundColor: "rgba(54, 162, 235, 0.6)",
         borderColor: "rgba(54, 162, 235, 1)",
@@ -59,7 +59,10 @@ const ApplicationTimeline: React.FC<{
         beginAtZero: true,
         title: {
           display: true,
-          text: "Number of Job Applications",
+          text: "Number of job applications",
+        },
+        ticks: {
+          stepSize: 1, // Set the step size to 1 for integer values
         },
       },
       x: {
