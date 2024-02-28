@@ -1,8 +1,11 @@
+import { ApplicationProp } from "@/app/lib/definitions";
+
 interface FormProps {
   type: string;
+  initialValues?: ApplicationProp;
 }
 
-const Form: React.FC<FormProps> = ({ type }) => {
+const Form: React.FC<FormProps> = ({ type, initialValues }) => {
   return (
     <section>
       <h2 className="text-center font-bold text-md md:text-lg mt-7 capitalize">
@@ -18,6 +21,7 @@ const Form: React.FC<FormProps> = ({ type }) => {
             <span className="text-rose-400 pl-px">*</span>
           </label>
           <input
+            defaultValue={initialValues ? initialValues.company : ""}
             className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
             id="company"
             type="company"
@@ -35,6 +39,7 @@ const Form: React.FC<FormProps> = ({ type }) => {
             <span className="text-rose-400 pl-px">*</span>
           </label>
           <input
+            defaultValue={initialValues ? initialValues.position : ""}
             className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
             id="position"
             type="position"
@@ -52,6 +57,9 @@ const Form: React.FC<FormProps> = ({ type }) => {
             <span className="text-rose-400 pl-px">*</span>
           </label>
           <input
+            defaultValue={
+              initialValues ? initialValues.job_description_link : ""
+            }
             className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
             id="jb-link"
             type="jb-link"
@@ -68,7 +76,8 @@ const Form: React.FC<FormProps> = ({ type }) => {
             Note
           </label>
           <textarea
-            className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
+            defaultValue={initialValues ? initialValues.note : ""}
+            className="block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
             id="note"
             name="note"
             rows={3}
@@ -86,6 +95,7 @@ const Form: React.FC<FormProps> = ({ type }) => {
               <span className="text-rose-400 pl-px">*</span>
             </label>
             <select
+              defaultValue={initialValues ? initialValues.status : ""}
               id="status"
               name="status"
               required

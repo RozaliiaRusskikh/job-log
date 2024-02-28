@@ -92,7 +92,7 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
         onClose={toggleModal}
         label="Edit a job application"
       >
-        <Form type="edit" />
+        <Form type="edit" initialValues={data} />
       </CustomModal>
     </>
   );
