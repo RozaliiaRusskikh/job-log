@@ -98,7 +98,7 @@ const Rates: React.FC<RejectionRateProps> = ({ applications }) => {
   return (
     <div>
       <h2 className="font-bold text-center italic mb-2 md:mb-4 text-base md:text-lg">
-        Job Application Statistics
+        Job Application Statistics:
       </h2>
       <div className="flex flex-col md:flex-row md:gap-4 w-full">
         {rates.map((rate, index) => (
