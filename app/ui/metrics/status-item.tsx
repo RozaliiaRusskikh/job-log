@@ -8,8 +8,10 @@ interface StatusItemProps {
 
 const StatusItem: React.FC<StatusItemProps> = ({ label, applications }) => {
   return (
-    <p className="flex flex-row-reverse items-center text-sm md:text-base px-3 italic font-semibold capitalize">
-      {label}
+    <div className="flex flex-row-reverse md:flex-col items-center md:gap-1">
+      <p className="text-sm md:text-base px-3 italic font-semibold capitalize">
+        {label}
+      </p>
       <span
         className={clsx(
           "font-bold rounded-full px-4 mx-2 py-1 text-center max-w-fit",
@@ -26,7 +28,7 @@ const StatusItem: React.FC<StatusItemProps> = ({ label, applications }) => {
             .length
         }
       </span>
-    </p>
+    </div>
   );
 };
 

@@ -13,16 +13,16 @@ const StatusBreakdown: React.FC<StatusBreakdownProps> = ({ applications }) => {
   ];
 
   return (
-    <section>
-      <p className="font-semibold text-center italic mb-4">
+    <div>
+      <h1 className="font-bold text-center italic mb-4 text-base md:text-lg">
         Application Status Breakdown
-      </p>
+      </h1>
       <div className="flex flex-col md:flex-row items-start gap-4 text-sm md:text-base border p-4 rounded-md mb-2 shadow-md">
         {allStatuses.map((status) => (
           <StatusItem key={status} label={status} applications={applications} />
         ))}
       </div>
-    </section>
+    </div>
   );
 };
 
