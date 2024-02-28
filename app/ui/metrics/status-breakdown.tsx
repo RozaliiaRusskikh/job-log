@@ -22,7 +22,7 @@ const StatusBreakdown: React.FC<StatusBreakdownProps> = ({ applications }) => {
           <p className="text-sm md:text-base px-3 italic font-bold uppercase">
             Total
           </p>
-          <span className="font-bold rounded-full px-4 mx-2 py-1 text-center max-w-fit border-2 border-gray-900 ">
+          <span className="font-bold rounded-full px-4 mx-2 py-1 text-center max-w-fit border-2 border-black ">
             {applications.length}
           </span>
         </div>

@@ -16,10 +16,11 @@ const StatusItem: React.FC<StatusItemProps> = ({ label, applications }) => {
         className={clsx(
           "font-bold rounded-full px-4 mx-2 py-1 text-center max-w-fit",
           {
-            "bg-gray-200": label === "applied",
-            "bg-rose-400": label === "rejected",
-            "bg-yellow-400": label === "interviewing",
-            "bg-emerald-400": label === "offer",
+            "bg-gray-200  border-2 border-gray-600": label === "applied",
+            "bg-rose-400 border-2 border-rose-600": label === "rejected",
+            "bg-yellow-400 border-2 border-yellow-600":
+              label === "interviewing",
+            "bg-emerald-400 border-2 border-emerald-600": label === "offer",
           }
         )}
       >
