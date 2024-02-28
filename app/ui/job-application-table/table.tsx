@@ -19,14 +19,14 @@ const Table: React.FC<{ applications: ApplicationProp[] }> = ({
           </th>
           <th className="relative border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
             Position
-            <div className="hidden md:inline-block ml-1 absolute right-2 top-3.5">
+            <div className="hidden lg:inline-block ml-1 absolute right-2 top-3.5">
               <ChevronUpIcon className="w-[13px] h-[13px] cursor-pointer mb-1" />
               <ChevronDownIcon className="w-[13px] h-[13px] cursor-pointer" />
             </div>
           </th>
           <th className="relative hidden sm:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
             Status
-            <div className="inline-block ml-1 absolute right-2 top-3.5">
+            <div className="hidden sm:inline-block ml-1 absolute right-2 md:top-3.5 top-1">
               <ChevronUpIcon className="w-[13px] h-[13px] cursor-pointer mb-1" />
               <ChevronDownIcon className="w-[13px] h-[13px] cursor-pointer" />
             </div>
