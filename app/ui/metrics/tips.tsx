@@ -80,7 +80,7 @@ const Tips: React.FC = () => {
         return (
           <article className="md:pl-14" key={index}>
             <p
-              className="cursor-pointer hover:decoration-2 font-semibold py-1 hover:decoration-amber-500 hover:underline transition-all"
+              className="cursor-pointer hover:decoration-2 font-semibold py-1 hover:decoration-amber-500 hover:underline transition-all w-fit"
               onClick={() => toggleAccordion(index)}
             >
               {tip.step}

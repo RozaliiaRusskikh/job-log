@@ -8,7 +8,7 @@ interface StatusItemProps {
 
 const StatusItem: React.FC<StatusItemProps> = ({ label, applications }) => {
   return (
-    <div className="flex flex-row-reverse md:flex-col items-center md:gap-1">
+    <div className="flex flex-row-reverse md:flex-col items-center md:gap-1 ">
       <p className="text-sm md:text-base px-3 italic font-semibold capitalize">
         {label}
       </p>

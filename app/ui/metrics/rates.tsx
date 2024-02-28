@@ -1,15 +1,38 @@
 "use client";
 import { ApplicationProp } from "@/app/lib/definitions";
-import { XCircleIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
-import CustomModal from "../job-application-table/modal";
+import RateItem from "./rate-item";
 
 interface RejectionRateProps {
   applications: ApplicationProp[];
 }
 
-const RejectionRate: React.FC<RejectionRateProps> = ({ applications }) => {
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+const Rates: React.FC<RejectionRateProps> = ({ applications }) => {
+  const successCategories = [
+    {
+      name: "High (Excellent)",
+      range: "30% or higher",
+      description:
+        "You're hitting the mark with your applications and impressing employers.",
+    },
+    {
+      name: "Moderate (Good)",
+      range: "15-30%",
+      description:
+        "You're doing well, but there's still room to improve and fine-tune your approach.",
+    },
+    {
+      name: "Average",
+      range: "5-15%",
+      description:
+        "You're getting some responses, but there's definite room for improvement in your application strategy.",
+    },
+    {
+      name: "Low (Needs Improvement)",
+      range: "Below 5%",
+      description:
+        "You need to rethink your strategy and possibly upgrade your qualifications and materials.",
+    },
+  ];
 
   const rejectionCategories = [
     {
@@ -44,6 +67,21 @@ const RejectionRate: React.FC<RejectionRateProps> = ({ applications }) => {
     },
   ];
 
+  const rates = [
+    {
+      status: "interviewing",
+      categories: successCategories,
+      title: "Probability of Getting a Job Offer",
+      modalTitle: "Job Application Success Categories",
+    },
+    {
+      status: "rejected",
+      categories: rejectionCategories,
+      title: "Application Rejected Rate",
+      modalTitle: "Job Application Rejection Categories",
+    },
+  ];
+
   function calculateRejectionRate(applications: ApplicationProp[]): number {
     // Filter applications with status "rejected"
     const rejectedApplications = applications.filter(
@@ -57,47 +95,25 @@ const RejectionRate: React.FC<RejectionRateProps> = ({ applications }) => {
     return parseFloat(successRate.toFixed(2));
   }
 
-  const toggleModal = () => {
-    setIsModalOpen((prevState) => !prevState);
-  };
-
   return (
-    <div className="flex flex-col text-sm md:text-base">
-      <div className="mt-1 mb-4 self-center border sm:p-3 p-2 border-slate-300 rounded-md leading-7">
-        <p className="font-semibold text-center leaading-7 sm:leading-normal italic">
-          Application Rejection Rate:
-        </p>
-        <div className="flex justify-center items-center">
-          <XCircleIcon
-            onClick={toggleModal}
-            className="h-[30px] w-[30px] cursor-pointer animate-pulse hover:scale-105 transition-transform text-rose-600"
+    <div>
+      <h2 className="font-bold text-center italic mb-2 md:mb-4 text-base md:text-lg">
+        Application Rates
+      </h2>
+      <div className="flex flex-col md:flex-row md:gap-4">
+        {rates.map((rate, index) => (
+          <RateItem
+            key={index}
+            status={rate.status}
+            categories={rate.categories}
+            title={rate.title}
+            applications={applications}
+            modalTitle={rate.modalTitle}
           />
-          <p className="font-bold px-1 py-1 text-center md:text-lg">
-            {calculateRejectionRate(applications)}%
-          </p>
-        </div>
+        ))}
       </div>
-      <CustomModal
-        isOpen={isModalOpen}
-        onClose={toggleModal}
-        label="Application rejection rate"
-      >
-        <h2 className="text-center font-bold text-md md:text-lg mt-7">
-          Rejection Rate Categories
-        </h2>
-        {rejectionCategories.map((category, index) => {
-          return (
-            <div key={index} className="text-sm md:text-base my-2">
-              <h2 className="font-bold underline decoration-emerald-500 decoration-2 text-gray-900">
-                {category.name}: {category.range}
-              </h2>
-              <p>{category.description}</p>
-            </div>
-          );
-        })}
-      </CustomModal>
     </div>
   );
 };
 
-export default RejectionRate;
+export default Rates;

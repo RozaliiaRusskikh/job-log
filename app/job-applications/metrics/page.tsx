@@ -1,10 +1,9 @@
 import { Metadata } from "next";
 import { applications } from "@/app/lib/placeholder-data";
 import StatusBreakdown from "@/app/ui/metrics/status-breakdown";
-import SuccessRate from "@/app/ui/metrics/success-rate";
-import RejectionRate from "@/app/ui/metrics/rejection-rate";
 import ApplicationStatus from "@/app/ui/metrics/application-status";
 import Tips from "@/app/ui/metrics/tips";
+import Rates from "@/app/ui/metrics/rates";
 
 export const metadata: Metadata = {
   title: "Metrics",
@@ -17,8 +16,7 @@ const Metrics = () => {
         <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto justify-center items-center">
           <StatusBreakdown applications={applications} />
           <ApplicationStatus applications={applications} />
-          <SuccessRate applications={applications} />
-          <RejectionRate applications={applications} />
+          <Rates applications={applications} />
         </div>
       ) : (
         <p className="text-center py-16 italic">

@@ -18,7 +18,7 @@ const StatusBreakdown: React.FC<StatusBreakdownProps> = ({ applications }) => {
         Application Status Breakdown
       </h1>
       <div className="flex flex-col md:flex-row items-start gap-4 text-sm md:text-base border p-4 rounded-md mb-2 shadow-md">
-        <div className="flex flex-row-reverse md:flex-col items-center md:gap-1">
+        <div className="flex flex-row md:flex-col items-center md:gap-1 md:border-r-2 md:border-gray-200">
           <p className="text-sm md:text-base px-3 italic font-bold uppercase">
             Total
           </p>
@@ -26,8 +26,8 @@ const StatusBreakdown: React.FC<StatusBreakdownProps> = ({ applications }) => {
             {applications.length}
           </span>
         </div>
-        {allStatuses.map((status) => (
-          <StatusItem key={status} label={status} applications={applications} />
+        {allStatuses.map((status, index) => (
+          <StatusItem key={index} label={status} applications={applications} />
         ))}
       </div>
     </div>
