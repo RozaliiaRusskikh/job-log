@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Table from "../ui/job-application-table/table";
 import { applications } from "@/app/lib/placeholder-data";
 import Search from "../ui/job-application-table/search";
-import AddJobApplicationButton from "../ui/add-application/add-form";
+import AddApplication from "../ui/crud-applications/add-application";
 
 export const metadata: Metadata = {
   title: "Job Applications",
@@ -24,7 +24,7 @@ const JobApplications = () => {
           </p>
         )}
       </div>
-      <AddJobApplicationButton />
+      <AddApplication />
     </section>
   );
 };
