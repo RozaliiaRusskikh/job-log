@@ -5,7 +5,7 @@ import Search from "../ui/job-application-table/search";
 import AddJobApplicationButton from "../ui/add-application/add-form";
 
 export const metadata: Metadata = {
-  title: "Job Applications |  Table",
+  title: "Job Applications",
 };
 
 const JobApplications = () => {

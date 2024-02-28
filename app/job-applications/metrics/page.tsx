@@ -7,7 +7,7 @@ import ApplicationStatus from "@/app/ui/metrics/application-status";
 import Tips from "@/app/ui/metrics/tips";
 
 export const metadata: Metadata = {
-  title: "Job Applications |  Metrics",
+  title: "Metrics",
 };
 
 const Metrics = () => {
