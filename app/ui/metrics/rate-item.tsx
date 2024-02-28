@@ -32,7 +32,7 @@ const RateItem: React.FC<RateItemProps> = ({
 
   // Function to calculate rate
   function calculateRate(applications: ApplicationProp[]): number {
-    // Filter applications with status "interviewing"
+    // Filter applications
     const filteredApplications = applications.filter(
       (app) => app.status === status
     );

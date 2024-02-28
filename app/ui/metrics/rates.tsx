@@ -71,29 +71,16 @@ const Rates: React.FC<RejectionRateProps> = ({ applications }) => {
     {
       status: "interviewing",
       categories: successCategories,
-      title: "Application Success Rate",
+      title: "Probability of getting job offer",
       modalTitle: "Job Application Success Categories",
     },
     {
       status: "rejected",
       categories: rejectionCategories,
-      title: "Application Rejected Rate",
+      title: "Application rejected rate",
       modalTitle: "Job Application Rejection Categories",
     },
   ];
-
-  function calculateRejectionRate(applications: ApplicationProp[]): number {
-    // Filter applications with status "rejected"
-    const rejectedApplications = applications.filter(
-      (app) => app.status === "rejected"
-    );
-
-    // Calculate success rate
-    const successRate =
-      (rejectedApplications.length / applications.length) * 100;
-
-    return parseFloat(successRate.toFixed(2));
-  }
 
   return (
     <div>
