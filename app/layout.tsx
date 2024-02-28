@@ -18,6 +18,9 @@ export const metadata: Metadata = {
     "AI",
     "Metrics",
   ],
+  icons: {
+    icon: "/icon.ico",
+  },
 };
 
 export default function RootLayout({
