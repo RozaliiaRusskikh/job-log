@@ -27,7 +27,7 @@ export const applications = [
     job_description_link: "https://about.meta.com/metaverse/",
   },
   {
-    app_id: 3,
+    app_id: 4,
     company: "LinkedIn",
     position: "Full Stack Developer",
     status: "rejected",
@@ -36,7 +36,7 @@ export const applications = [
     job_description_link: "https://www.linkedin.com",
   },
   {
-    app_id: 1,
+    app_id: 5,
     company: "Intergalactic Inc",
     position: "Software Engineer",
     status: "rejected",

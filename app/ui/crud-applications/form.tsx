@@ -95,7 +95,7 @@ const Form: React.FC<FormProps> = ({ type }) => {
             />
           </div>
         )}
-        <LoginButton />
+        <LoginButton type={type} />
       </form>
     </section>
   );
@@ -103,10 +103,10 @@ const Form: React.FC<FormProps> = ({ type }) => {
 
 export default Form;
 
-function LoginButton() {
+const LoginButton: React.FC<{ type: string }> = ({ type }) => {
   return (
-    <button className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 ">
-      Add item
+    <button className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 capitalize">
+      {type} item
     </button>
   );
-}
+};
