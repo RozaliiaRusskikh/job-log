@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-import TotalNumberStatistics from "@/app/ui/metrics/total-number-statistics";
 import { applications } from "@/app/lib/placeholder-data";
 import StatusBreakdown from "@/app/ui/metrics/status-breakdown";
 import SuccessRate from "@/app/ui/metrics/success-rate";
@@ -16,14 +15,9 @@ const Metrics = () => {
     <section className="text-sm md:text-base min-h-screen">
       {!!applications?.length ? (
         <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
+          <StatusBreakdown applications={applications} />
+          <ApplicationStatus applications={applications} />
           <SuccessRate applications={applications} />
-          <div className="justify-center flex flex-col sm:flex-row sm:items-baseline sm:gap-20">
-            <div>
-              <TotalNumberStatistics applications={applications} />
-              <StatusBreakdown applications={applications} />
-            </div>
-            <ApplicationStatus applications={applications} />
-          </div>
           <RejectionRate applications={applications} />
         </div>
       ) : (

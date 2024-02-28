@@ -52,7 +52,6 @@ const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
 
   // Chart data
   const chartData = {
-    labels: labels,
     datasets: [
       {
         label: "percentage",
@@ -65,10 +64,7 @@ const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
   };
 
   return (
-    <div className="sm:max-w-[60%]">
-      <p className="font-semibold text-center italic">
-        Application Status Breakdown
-      </p>
+    <div className="w-full sm:w-1/2 mb-10">
       <Pie data={chartData} />
     </div>
   );

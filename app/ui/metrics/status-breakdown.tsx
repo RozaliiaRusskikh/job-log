@@ -1,35 +1,28 @@
+import React from "react";
 import { ApplicationProp } from "@/app/lib/definitions";
+import StatusItem from "./status-item";
 
-const StatusBreakdown: React.FC<{ applications: ApplicationProp[] }> = ({
-  applications,
-}) => {
+interface StatusBreakdownProps {
+  applications: ApplicationProp[];
+}
+
+const StatusBreakdown: React.FC<StatusBreakdownProps> = ({ applications }) => {
+  // Get all unique status values
+  const allStatuses: string[] = [
+    ...new Set(applications.map((app) => app.status)),
+  ];
+
   return (
-    <div className="flex flex-col border border-slate-300 rounded-md mb-4 text-sm md:text-base">
-      <div className="my-1 p-2 border-b border-slate-300">
-        <p className=" text-sm md:text-base px-3 italic font-semibold">
-          Applied:
-          <span className="font-bold rounded-full px-4 mx-2 py-1 text-center max-w-fit bg-gray-200">
-            {applications.filter((app) => app.status === "applied").length}
-          </span>
-        </p>
+    <section>
+      <p className="font-semibold text-center italic mb-4">
+        Application Status Breakdown
+      </p>
+      <div className="flex flex-col md:flex-row items-start gap-4 text-sm md:text-base border p-4 rounded-md mb-2 shadow-md">
+        {allStatuses.map((status) => (
+          <StatusItem key={status} label={status} applications={applications} />
+        ))}
       </div>
-      <div className="my-1 p-2 border-b border-slate-300">
-        <p className="text-sm md:text-base px-3 italic font-semibold">
-          Interviewing:
-          <span className="font-bold rounded-full px-4 py-1 mx-2 text-center max-w-fit bg-yellow-400">
-            {applications.filter((app) => app.status === "interviewing").length}
-          </span>
-        </p>
-      </div>
-      <div className="my-1 p-2">
-        <p className=" text-sm md:text-base px-3 italic font-semibold">
-          Offer:
-          <span className="font-bold rounded-full px-4 py-1 mx-2 text-center max-w-fit bg-emerald-400">
-            {applications.filter((app) => app.status === "offer").length}
-          </span>
-        </p>
-      </div>
-    </div>
+    </section>
   );
 };
 
