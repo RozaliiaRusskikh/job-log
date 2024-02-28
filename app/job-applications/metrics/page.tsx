@@ -14,7 +14,7 @@ const Metrics = () => {
   return (
     <section className="text-sm md:text-base min-h-screen">
       {!!applications?.length ? (
-        <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto items-center">
+        <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto justify-center items-center">
           <StatusBreakdown applications={applications} />
           <ApplicationStatus applications={applications} />
           <SuccessRate applications={applications} />

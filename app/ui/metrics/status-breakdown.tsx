@@ -18,6 +18,14 @@ const StatusBreakdown: React.FC<StatusBreakdownProps> = ({ applications }) => {
         Application Status Breakdown
       </h1>
       <div className="flex flex-col md:flex-row items-start gap-4 text-sm md:text-base border p-4 rounded-md mb-2 shadow-md">
+        <div className="flex flex-row-reverse md:flex-col items-center md:gap-1">
+          <p className="text-sm md:text-base px-3 italic font-bold uppercase">
+            Total
+          </p>
+          <span className="font-bold rounded-full px-4 mx-2 py-1 text-center max-w-fit border-2 border-gray-900 ">
+            {applications.length}
+          </span>
+        </div>
         {allStatuses.map((status) => (
           <StatusItem key={status} label={status} applications={applications} />
         ))}
