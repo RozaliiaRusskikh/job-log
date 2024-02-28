@@ -82,17 +82,20 @@ const Form: React.FC<FormProps> = ({ type }) => {
               className="mb-2 mt-5 block text-sm font-semibold text-gray-900"
               htmlFor="status"
             >
-              Status!!!!!!!!!
+              Status
               <span className="text-rose-400 pl-px">*</span>
             </label>
-            <input
-              className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
+            <select
               id="status"
-              type="status"
               name="status"
-              placeholder="Enter a status"
               required
-            />
+              className="text-sm border border-slate-300 text-gray-900 py-[9px] p-2.5 outline-2  outline-emerald-500 rounded-md focus:ring-emerald-500 focus:border-emerald-500 w-1/2"
+            >
+              <option value="interviewing">Interviewing</option>
+              <option value="applied">Applied</option>
+              <option value="offer">Offer</option>
+              <option value="rejected">Rejected</option>
+            </select>
           </div>
         )}
         <LoginButton type={type} />

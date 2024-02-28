@@ -30,7 +30,7 @@ export const applications = [
     app_id: 4,
     company: "LinkedIn",
     position: "Full Stack Developer",
-    status: "rejected",
+    status: "offer",
     date: 1708556209,
     note: "Hello, LinkedIn",
     job_description_link: "https://www.linkedin.com",
