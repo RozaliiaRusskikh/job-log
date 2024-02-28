@@ -4,6 +4,7 @@ import StatusBreakdown from "@/app/ui/metrics/status-breakdown";
 import ApplicationStatus from "@/app/ui/metrics/application-status";
 import Tips from "@/app/ui/metrics/tips";
 import Rates from "@/app/ui/metrics/rates";
+import ApplicationTimeline from "@/app/ui/metrics/application-timeline";
 
 export const metadata: Metadata = {
   title: "Metrics",
@@ -16,6 +17,7 @@ const Metrics = () => {
         <div className="gap-4 flex flex-col w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto justify-center items-center">
           <StatusBreakdown applications={applications} />
           <ApplicationStatus applications={applications} />
+          <ApplicationTimeline applications={applications} />
           <Rates applications={applications} />
         </div>
       ) : (
