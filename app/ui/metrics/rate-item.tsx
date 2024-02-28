@@ -2,8 +2,10 @@
 import { ApplicationProp } from "@/app/lib/definitions";
 import { BriefcaseIcon } from "@heroicons/react/24/outline";
 import { HandThumbUpIcon } from "@heroicons/react/24/outline";
+import { HandThumbDownIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import CustomModal from "../job-application-table/modal";
+import clsx from "clsx";
 
 interface CategoriesProps {
   name: string;
@@ -58,15 +60,33 @@ const RateItem: React.FC<RateItemProps> = ({
               className="h-[30px] w-[30px] text-emerald-700 cursor-pointer animate-pulse hover:scale-105 transition-transform"
             />
           ) : (
-            <HandThumbUpIcon
-              onClick={toggleModal}
-              className="h-[30px] w-[30px] text-rose-400 cursor-pointer animate-pulse hover:scale-105 transition-transform"
-            />
+            <>
+              <HandThumbUpIcon
+                onClick={toggleModal}
+                className="h-[30px] w-[30px] text-rose-400 cursor-pointer animate-pulse hover:scale-105 transition-transform"
+              />
+              <HandThumbDownIcon
+                onClick={toggleModal}
+                className="h-[30px] w-[30px] text-rose-400 cursor-pointer animate-pulse hover:scale-105 transition-transform"
+              />
+            </>
           )}
           <p className="font-bold px-1 py-1 text-center md:text-lg">
             {calculateRate(applications)}%
           </p>
         </div>
+        <div className="relative w-full h-4 bg-gray-200 rounded-md mt-2">
+          <div
+            className={clsx("absolute top-0 left-0 h-full rounded-md", {
+              "bg-rose-400": status === "rejected",
+              "bg-emerald-400": status === "interviewing",
+            })}
+            style={{ width: `${calculateRate(applications)}%` }}
+          ></div>
+        </div>
+        <p className="text-xs text-center mt-1">
+          *Percentage calculated from {status} status
+        </p>
       </div>
       <CustomModal
         isOpen={isModalOpen}
