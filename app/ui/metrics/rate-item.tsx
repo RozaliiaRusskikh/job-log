@@ -3,6 +3,7 @@ import { ApplicationProp } from "@/app/lib/definitions";
 import { BriefcaseIcon } from "@heroicons/react/24/outline";
 import { HandThumbUpIcon } from "@heroicons/react/24/outline";
 import { HandThumbDownIcon } from "@heroicons/react/24/outline";
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import CustomModal from "../job-application-table/modal";
 import clsx from "clsx";
@@ -50,24 +51,28 @@ const RateItem: React.FC<RateItemProps> = ({
   return (
     <div className="flex flex-col text-sm md:text-base w-64 md:w-80">
       <div className="mt-1 mb-4 self-center border sm:p-3 p-2 border-slate-300 rounded-md leading-7 shadow-md">
-        <p className="font-semibold text-center leaading-7 sm:leading-normal italic">
+        <p className="font-semibold text-center leaading-7 sm:leading-normal italic pr-px">
           {title}
+          <InformationCircleIcon
+            onClick={toggleModal}
+            className="h-[19px] w-[19px] text-gray-800 cursor-pointer inline align-baseline pl-px hover:scale-110 transition-all"
+          />
         </p>
         <div className="flex justify-center gap-1 items-center">
           {status === "interviewing" ? (
             <BriefcaseIcon
               onClick={toggleModal}
-              className="h-[30px] w-[30px] text-emerald-700 cursor-pointer animate-pulse hover:scale-105 transition-transform"
+              className="h-[45px] w-[45px] text-emerald-700 cursor-pointer animate-pulse hover:scale-105 transition-transform"
             />
           ) : (
             <>
               <HandThumbUpIcon
                 onClick={toggleModal}
-                className="h-[30px] w-[30px] text-rose-400 cursor-pointer animate-pulse hover:scale-105 transition-transform"
+                className="h-[45px] w-[40px] text-rose-400 cursor-pointer animate-pulse hover:scale-105 transition-transform"
               />
               <HandThumbDownIcon
                 onClick={toggleModal}
-                className="h-[30px] w-[30px] text-rose-400 cursor-pointer animate-pulse hover:scale-105 transition-transform"
+                className="h-[45px] w-[40px] text-rose-400 cursor-pointer animate-pulse hover:scale-105 transition-transform"
               />
             </>
           )}
