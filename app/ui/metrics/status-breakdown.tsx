@@ -13,11 +13,11 @@ const StatusBreakdown: React.FC<StatusBreakdownProps> = ({ applications }) => {
   ];
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <h1 className="font-bold text-center italic mb-4 text-base md:text-lg">
         Job Application Status Breakdown:
       </h1>
-      <div className="flex flex-col items-start md:items-center gap-3 text-sm md:text-base border p-4 rounded-md mb-2 shadow-md">
+      <div className="flex flex-col items-start md:items-center gap-3 text-sm md:text-base border p-4 rounded-md mb-2 shadow-md w-2/3 md:w-full">
         <div className="flex flex-row md:flex-col items-center md:gap-1">
           <p className="text-sm md:text-base px-3 italic font-bold uppercase">
             Total
