@@ -30,7 +30,7 @@ const Rates: React.FC<RejectionRateProps> = ({ applications }) => {
       name: "Low",
       range: "Below 5%",
       description:
-        "You need to rethink your strategy and possibly upgrade your qualifications and materials. If you fail the interview, don't beat yourself up - just try again and boost your skills. Reflect on the experience, identify areas where you can enhance your skills or preparation, and then try again. Each interview provides valuable insights that can help you perform better in the future.",
+        "You need to rethink your strategy and possibly upgrade your qualifications and materials.",
     },
   ];
 
@@ -63,7 +63,7 @@ const Rates: React.FC<RejectionRateProps> = ({ applications }) => {
       name: "Not Suitable",
       range: "51% and above",
       description:
-        "A very high rejection rate indicates that many of your applications are not meeting fundamental job requirements or aligning with employers' needs. Take this as an opportunity to rethink your strategy and focus on positions where you're a better fit, while also considering seeking feedback on your applications to pinpoint areas for improvement. Additionally, reevaluate your resume, update your profile including LinkedIn, boost your skills by obtaining certificates or building projects to showcase your capabilities.",
+        "A very high rejection rate indicates that many of your applications are not meeting fundamental job requirements or aligning with employers' needs. Take this as an opportunity to rethink your strategy and focus on positions where you're a better fit, while also considering seeking feedback on your applications to pinpoint areas for improvement. Additionally, reevaluate your resume, update your profile including LinkedIn, boost your skills by obtaining certificates or building projects to showcase your capabilities. If you fail the interview, don't beat yourself up - just try again and boost your skills. Reflect on the experience, identify areas where you can enhance your skills or preparation, and then try again. Each interview provides valuable insights that can help you perform better in the future.",
     },
   ];
 
