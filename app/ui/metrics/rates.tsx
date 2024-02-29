@@ -30,7 +30,7 @@ const Rates: React.FC<RejectionRateProps> = ({ applications }) => {
       name: "Low",
       range: "Below 5%",
       description:
-        "You need to rethink your strategy and possibly upgrade your qualifications and materials.",
+        "You need to rethink your strategy and possibly upgrade your qualifications and materials. If you fail the interview, don't beat yourself up - just try again and boost your skills. Reflect on the experience, identify areas where you can enhance your skills or preparation, and then try again. Each interview provides valuable insights that can help you perform better in the future.",
     },
   ];
 
