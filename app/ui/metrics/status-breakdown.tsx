@@ -17,8 +17,8 @@ const StatusBreakdown: React.FC<StatusBreakdownProps> = ({ applications }) => {
       <h1 className="font-bold text-center italic mb-4 text-base md:text-lg">
         Job Application Status Breakdown:
       </h1>
-      <div className="flex flex-col md:flex-row items-start gap-4 text-sm md:text-base border p-4 rounded-md mb-2 shadow-md">
-        <div className="flex flex-row md:flex-col items-center md:gap-1 md:border-r-2 md:border-gray-200">
+      <div className="flex flex-col items-start md:items-center gap-3 text-sm md:text-base border p-4 rounded-md mb-2 shadow-md">
+        <div className="flex flex-row md:flex-col items-center md:gap-1">
           <p className="text-sm md:text-base px-3 italic font-bold uppercase">
             Total
           </p>
