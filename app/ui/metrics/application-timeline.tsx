@@ -76,8 +76,8 @@ const ApplicationTimeline: React.FC<{
 
   // Return the component with the bar chart
   return (
-    <div className="w-full mb-10">
-      <h2 className="font-bold text-center italic mb-4 text-base md:text-lg">
+    <div className="w-full mb-10 flex flex-col items-center">
+      <h2 className="font-bold text-center italic mb-4 text-base md:text-lg min-w-36">
         Job Application Timeline for the {currentYear} year:
       </h2>
       <Bar data={chartData} options={chartOptions} />
