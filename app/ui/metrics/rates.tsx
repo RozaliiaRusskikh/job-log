@@ -72,13 +72,13 @@ const Rates: React.FC<RejectionRateProps> = ({ applications }) => {
       status: "interviewing",
       categories: successCategories,
       title: "Probability of getting job offer",
-      modalTitle: "Job Application Success Categories",
+      modalTitle: "Job Application Success Rates",
     },
     {
       status: "rejected",
       categories: rejectionCategories,
-      title: "Application rejected rate",
-      modalTitle: "Job Application Rejection Categories",
+      title: "Application rejection rate",
+      modalTitle: "Job Application Rejection Rates",
     },
   ];
 
