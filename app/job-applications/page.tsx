@@ -20,7 +20,8 @@ const JobApplications = () => {
           <Table applications={applications} />
         ) : (
           <p className="text-center py-3 italic h-screen">
-            It looks like you haven't added any job applications yet
+            It looks like you haven't added any job applications yet so there is
+            no data to display.
           </p>
         )}
       </div>
