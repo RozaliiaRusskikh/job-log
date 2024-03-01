@@ -79,9 +79,9 @@ const Tips: React.FC = () => {
 
       {tips.map((tip, index) => {
         return (
-          <article className="md:pl-14" key={index}>
+          <article className="md:pl-14 md:mb-5" key={index}>
             <p
-              className="cursor-pointer hover:decoration-2 font-semibold py-1 hover:decoration-amber-500 hover:underline transition-all w-fit"
+              className="cursor-pointer hover:decoration-2 font-semibold py-2 hover:decoration-amber-500 hover:underline transition-all w-fit"
               onClick={() => toggleAccordion(index)}
             >
               <StarIcon className="w-[16px] h-[16px] text-amber-500 inline align-middle mb-1 mr-1" />{" "}
@@ -89,7 +89,9 @@ const Tips: React.FC = () => {
               <ChevronDownIcon className="inline w-[20px] h-[16px] text-amber-500 mx-1 align-middle mb-1" />
             </p>
             {activeIndex === index && (
-              <p className="text-[13px] md:text-base mb-4">{tip.description}</p>
+              <p className="text-[13px] md:text-base mb-4 border-y py-4 border-slate-200">
+                {tip.description}
+              </p>
             )}
           </article>
         );
