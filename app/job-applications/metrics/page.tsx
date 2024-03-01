@@ -24,7 +24,7 @@ const Metrics = () => {
         </div>
       ) : (
         <p className="text-center py-16 italic">
-          It looks like you haven't added any job applications yet so there is
+          It looks like you have not added any job applications yet so there is
           no data to display.
         </p>
       )}
