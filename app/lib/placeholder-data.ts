@@ -6,7 +6,7 @@ export const applications = [
     status: "interviewing",
     date: 1709163107,
     note: "Hello, Amazon",
-    job_description_link: "https://www.amazon.ca",
+    jobDescriptionLink: "https://www.amazon.ca",
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const applications = [
     status: "applied",
     date: 1709163107,
     note: "Hello, Google",
-    job_description_link: "https://www.google.com/",
+    jobDescriptionLink: "https://www.google.com/",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ export const applications = [
     status: "applied",
     date: 1709163107,
     note: "Hello, Meta",
-    job_description_link: "https://about.meta.com/metaverse/",
+    jobDescriptionLink: "https://about.meta.com/metaverse/",
   },
   {
     id: 4,
@@ -33,7 +33,7 @@ export const applications = [
     status: "offer",
     date: 1709163107,
     note: "Hello, LinkedIn",
-    job_description_link: "https://www.linkedin.com",
+    jobDescriptionLink: "https://www.linkedin.com",
   },
   {
     id: 5,
@@ -42,6 +42,6 @@ export const applications = [
     status: "rejected",
     date: 1709163107,
     note: "Hello, Intergalactic. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
-    job_description_link: "https://intergalactic.com/",
+    jobDescriptionLink: "https://intergalactic.com/",
   },
 ];

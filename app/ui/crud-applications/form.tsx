@@ -57,9 +57,7 @@ const Form: React.FC<FormProps> = ({ type, initialValues }) => {
             <span className="text-rose-400 pl-px">*</span>
           </label>
           <input
-            defaultValue={
-              initialValues ? initialValues.job_description_link : ""
-            }
+            defaultValue={initialValues ? initialValues.jobDescriptionLink : ""}
             className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
             id="jb-link"
             type="jb-link"

@@ -5,5 +5,5 @@ export type ApplicationProp = {
   status: string;
   date: number;
   note: string;
-  job_description_link: string;
+  jobDescriptionLink: string;
 };

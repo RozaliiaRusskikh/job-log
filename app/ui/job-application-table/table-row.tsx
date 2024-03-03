@@ -13,7 +13,7 @@ import CustomModal from "../job-application-table/modal";
 import Form from "../crud-applications/form";
 
 const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
-  const { company, position, status, date, note, job_description_link } = data;
+  const { company, position, status, date, note, jobDescriptionLink } = data;
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -31,7 +31,7 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
           <a
             className="cursor-pointer hover:decoration-2 hover:decoration-emerald-500 hover:underline transition-all"
             target="_blank"
-            href={job_description_link}
+            href={jobDescriptionLink}
           >
             {" "}
             {position}
