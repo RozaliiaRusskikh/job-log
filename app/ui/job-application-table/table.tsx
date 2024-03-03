@@ -48,7 +48,7 @@ const Table: React.FC<{ applications: ApplicationProp[] }> = ({
       </thead>
       <tbody>
         {applications.map((application: ApplicationProp) => {
-          return <Row key={application.app_id} data={application} />;
+          return <Row key={application.id} data={application} />;
         })}
       </tbody>
     </table>

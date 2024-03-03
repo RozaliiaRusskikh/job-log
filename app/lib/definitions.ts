@@ -1,5 +1,5 @@
 export type ApplicationProp = {
-  app_id: number;
+  id: number;
   company: string;
   position: string;
   status: string;

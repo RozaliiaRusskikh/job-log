@@ -5,6 +5,7 @@ import Menu from "./menu";
 import Image from "next/image";
 import profile from "@/public/profile.svg";
 import { useState } from "react";
+import { signOut } from "next-auth/react";
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
 
 //src={session?.user.image} => for profile
@@ -32,7 +33,10 @@ const Header = () => {
         />
         {isMenuOpened && (
           <div className="bg-slate-100 rounded-md p-2 absolute right-0 min-w-[110px] text-center opacity-80">
-            <button className="font-bold cursor-pointer text-sm md:text-base hover:text-emerald-700 transition-colors">
+            <button
+              type="button"
+              className="font-bold cursor-pointer text-sm md:text-base hover:text-emerald-700 transition-colors"
+            >
               <ArrowLeftEndOnRectangleIcon className="w-[16px] h-[16px] inline mr-1" />
               Sign Out
             </button>
