@@ -1,5 +1,6 @@
 import Header from "@/app/ui/job-application-table/header";
 import Footer from "../ui/job-application-table/footer";
+import ToasterContext from "../context/ToasterContext";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -7,7 +8,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <div className="w-full">
         <Header />
       </div>
-      <div>{children}</div>
+      <div>
+        <ToasterContext />
+        {children}
+      </div>
       <Footer />
     </div>
   );
