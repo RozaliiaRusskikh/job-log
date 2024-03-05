@@ -10,18 +10,7 @@ import { useRouter } from "next/navigation";
 export default function Home() {
   const router = useRouter();
   function handleSignIn() {
-    signIn("google", {
-      redirect: false,
-    }).then((callback) => {
-      if (callback?.error) {
-        toast.error("There is a login issue");
-      }
-
-      if (callback?.ok) {
-        toast.success("You have successfully logged in!");
-        router.push("/job-applications");
-      }
-    });
+    console.log("Sign In");
   }
   return (
     <main className="flex min-h-screen flex-col p-6">
