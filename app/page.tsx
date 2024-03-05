@@ -3,12 +3,9 @@
 import Image from "next/image";
 import JobLogsLogo from "./ui/job-logs-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import { signIn } from "next-auth/react";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const router = useRouter();
   function handleSignIn() {
     console.log("Sign In");
   }

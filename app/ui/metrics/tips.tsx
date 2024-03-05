@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
-import { StarIcon } from "@heroicons/react/24/outline";
+import { LightBulbIcon } from "@heroicons/react/24/outline";
 
 interface Tip {
   step: string;
@@ -84,7 +84,7 @@ const Tips: React.FC = () => {
               className="cursor-pointer hover:decoration-2 font-semibold py-2 hover:decoration-amber-500 hover:underline transition-all w-fit"
               onClick={() => toggleAccordion(index)}
             >
-              <StarIcon className="w-[16px] h-[16px] text-amber-500 inline align-middle mb-1 mr-1" />{" "}
+              <LightBulbIcon className="w-[25px] h-[25px] text-amber-500 inline align-middle mb-1 mr-1" />{" "}
               {tip.step}
               <ChevronDownIcon className="inline w-[20px] h-[16px] text-amber-500 mx-1 align-middle mb-1" />
             </p>
