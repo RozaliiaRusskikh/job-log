@@ -8,14 +8,12 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  name      String?
-  email     String?  @unique
-  image     String?
-  createdAt DateTime @default(now())
-
-  applicationIds String[]      @db.ObjectId
-  applications   Application[] @relation(fields: [applicationIds], references: [id])
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  name         String?
+  email        String?       @unique
+  image        String?
+  createdAt    DateTime      @default(now())
+  applications Application[]
 }
 
 model Application {
@@ -28,6 +26,6 @@ model Application {
   note               String?
   jobDescriptionLink String
 
-  userIds String[] @db.ObjectId
-  users   User[]   @relation(fields: [userIds], references: [id])
+  userId String @db.ObjectId
+  user   User   @relation(fields: [userId], references: [id])
 }
