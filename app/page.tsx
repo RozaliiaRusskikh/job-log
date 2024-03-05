@@ -3,21 +3,18 @@
 import Image from "next/image";
 import JobLogsLogo from "./ui/job-logs-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import toast from "react-hot-toast";
 
 export default function Home() {
   function handleSignIn() {
     console.log("Sign In");
   }
+
   return (
     <main className="flex min-h-screen flex-col p-6">
-      <Link
-        href="/"
-        className="flex h-20 shrink-0 items-center justify-center rounded-lg bg-primary p-4 md:h-40"
-      >
+      <div className="flex h-20 shrink-0 items-center justify-center rounded-lg bg-primary p-4 md:h-40">
         <JobLogsLogo />
-      </Link>
+      </div>
       <div className="mt-4 flex grow flex-col gap-2 md:gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-3/5 md:px-16">
           <h1 className={`text-xl text-primary md:text-3xl md:leading-normal`}>
