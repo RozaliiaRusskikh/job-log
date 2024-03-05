@@ -5,7 +5,6 @@ import Menu from "./menu";
 import Image from "next/image";
 import profile from "@/public/profile.svg";
 import { useState } from "react";
-import { signOut } from "next-auth/react";
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
 
 //src={session?.user.image} => for profile
