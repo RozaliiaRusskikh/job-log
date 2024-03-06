@@ -3,10 +3,10 @@
 import Image from "next/image";
 import JobLogsLogo from "./ui/job-logs-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
-import toast from "react-hot-toast";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import { PaperClipIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -35,6 +35,21 @@ export default function Home() {
       .finally(() => setIsLoading(false));
   }
 
+  if (session?.status === "loading") {
+    return (
+      <main className="mb-2 flex items-center justify-center h-screen">
+        <div className="flex gap-3 justify-center items-center">
+          <PaperClipIcon
+            className="animate-spin text-emerald-600"
+            width={40}
+            height={40}
+          />
+          <h2 className="text-primary text-lg">Processing...</h2>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className="flex min-h-screen flex-col p-6">
       <div className="flex h-20 shrink-0 items-center justify-center rounded-lg bg-primary p-4 md:h-40">
@@ -49,6 +64,7 @@ export default function Home() {
           </h1>
           <button
             onClick={() => socialAction("google")}
+            disabled={isLoading}
             className="font-bold flex items-center gap-5 self-start rounded-lg bg-emerald-500 px-6 py-3 text-sm text-white transition-colors hover:bg-emerald-600 md:text-base"
           >
             <span>Log in</span>{" "}
