@@ -6,11 +6,12 @@ import Image from "next/image";
 import profile from "@/public/profile.svg";
 import { useState } from "react";
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
-
-//src={session?.user.image} => for profile
+import { signOut, useSession } from "next-auth/react";
 
 const Header = () => {
   const [isMenuOpened, setIsMenuOpen] = useState(false);
+  const { data: session } = useSession();
+
   function toggleProfileInfo() {
     setIsMenuOpen((prevState) => !prevState);
   }
@@ -24,7 +25,7 @@ const Header = () => {
       <div className="relative self-center">
         <Image
           onClick={toggleProfileInfo}
-          src={profile}
+          src={session?.user ? session?.user.image : profile}
           alt="profile"
           width={40}
           height={40}
@@ -33,6 +34,9 @@ const Header = () => {
         {isMenuOpened && (
           <div className="bg-slate-100 rounded-md p-2 absolute right-0 min-w-[110px] text-center opacity-80">
             <button
+              onClick={async () => {
+                await signOut({ callbackUrl: "/" });
+              }}
               type="button"
               className="font-bold cursor-pointer text-sm md:text-base hover:text-emerald-700 transition-colors"
             >
