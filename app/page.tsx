@@ -6,8 +6,8 @@ import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { PaperClipIcon } from "@heroicons/react/24/outline";
 import googleIcon from "@/public/icons-google.svg";
+import Loading from "./ui/job-application-table/loading";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,18 +37,7 @@ export default function Home() {
   }
 
   if (session?.status === "loading") {
-    return (
-      <main className="mb-2 flex items-center justify-center h-screen bg-gray-100">
-        <div className="flex gap-3 justify-center items-center">
-          <PaperClipIcon
-            className="animate-spin text-emerald-600"
-            width={40}
-            height={40}
-          />
-          <h2 className="text-primary text-lg">Processing...</h2>
-        </div>
-      </main>
-    );
+    <Loading />;
   }
 
   return (
