@@ -7,6 +7,7 @@ import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { PaperClipIcon } from "@heroicons/react/24/outline";
+import googleIcon from "@/public/icons-google.svg";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
@@ -65,9 +66,16 @@ export default function Home() {
           <button
             onClick={() => socialAction("google")}
             disabled={isLoading}
-            className="font-bold flex items-center gap-5 self-start rounded-lg bg-emerald-500 px-6 py-3 text-sm text-white transition-colors hover:bg-emerald-600 md:text-base"
+            className="font-bold flex items-center gap-5 self-start rounded-lg bg-emerald-400 px-6 py-3 text-sm text-white transition-colors hover:bg-emerald-500 md:text-base border-2 border-emerald-500"
           >
-            <span>Log in</span>{" "}
+            <span>
+              Log in with
+              <Image
+                src={googleIcon}
+                className="w-[23px] h-[23px] inline ml-2"
+                alt="google icon"
+              />
+            </span>
             <ArrowRightIcon className="w-5 md:w-6 animate-pulse" />
           </button>
         </div>
