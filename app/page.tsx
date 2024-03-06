@@ -4,10 +4,35 @@ import Image from "next/image";
 import JobLogsLogo from "./ui/job-logs-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import toast from "react-hot-toast";
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
 
 export default function Home() {
-  function handleSignIn() {
-    console.log("Sign In");
+  const [isLoading, setIsLoading] = useState(false);
+  const session = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (session?.status === "authenticated") {
+      router.push("/job-applications");
+    }
+  }, [session?.status, router]);
+
+  function socialAction(action: string) {
+    setIsLoading(true);
+
+    signIn("google", { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          return;
+        }
+
+        if (callback?.ok) {
+          router.push("/job-applications");
+        }
+      })
+      .finally(() => setIsLoading(false));
   }
 
   return (
@@ -23,7 +48,7 @@ export default function Home() {
             spreadsheets, and gain valuable insights into your job search
           </h1>
           <button
-            onClick={handleSignIn}
+            onClick={() => socialAction("google")}
             className="font-bold flex items-center gap-5 self-start rounded-lg bg-emerald-500 px-6 py-3 text-sm text-white transition-colors hover:bg-emerald-600 md:text-base"
           >
             <span>Log in</span>{" "}

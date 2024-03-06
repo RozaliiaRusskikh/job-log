@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./ui/globals.css";
 import { nunito_sans } from "./ui/fonts";
+import AuthContext from "./context/AuthContext";
 
 export const metadata: Metadata = {
   title: {
@@ -30,7 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${nunito_sans.className} antialiased`}>{children}</body>
+      <AuthContext>
+        <body className={`${nunito_sans.className} antialiased`}>
+          {children}
+        </body>
+      </AuthContext>
     </html>
   );
 }
