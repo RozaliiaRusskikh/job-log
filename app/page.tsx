@@ -37,7 +37,7 @@ export default function Home() {
 
   if (session?.status === "loading") {
     return (
-      <main className="mb-2 flex items-center justify-center h-screen">
+      <main className="mb-2 flex items-center justify-center h-screen bg-gray-100">
         <div className="flex gap-3 justify-center items-center">
           <PaperClipIcon
             className="animate-spin text-emerald-600"
