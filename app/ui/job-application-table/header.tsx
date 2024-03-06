@@ -29,7 +29,7 @@ const Header = () => {
           alt="profile"
           width={50}
           height={50}
-          className="rounded-full cursor-pointer hover:scale-110 transition-transform md:w-[60px] md:h-[60px]"
+          className="rounded-full cursor-pointer hover:scale-110 transition-transform md:w-[55px] md:h-[55px]"
         />
         {isMenuOpened && (
           <div className="bg-slate-100 rounded-md p-2 absolute right-0 min-w-[110px] text-center opacity-80">
