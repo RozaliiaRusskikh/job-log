@@ -1,11 +1,7 @@
 "use client";
 
-import { ApplicationProp } from "@/app/lib/definitions";
+import { Status, ApplicationProp } from "@/app/lib/definitions";
 import clsx from "clsx";
-import {
-  convertUnixToDateString,
-  convertUnixToDateLetterString,
-} from "@/app/lib/helper";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
@@ -41,38 +37,38 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
             <dd>at {company},</dd>
             <dt className="sr-only">Date</dt>
             <dd className="font-normal text-gray-700 mt-1 leading-normal">
-              {convertUnixToDateLetterString(date)}
+              {date}
             </dd>
             <dt className="sr-only sm:hidden">Status</dt>
             <dd
               className={clsx(
                 "rounded-full w-fit px-3 py-1 sm:hidden mt-1 leading-normal font-normal",
                 {
-                  "bg-gray-200": status === "applied",
-                  "bg-rose-400": status === "rejected",
-                  "bg-yellow-400": status === "interviewing",
-                  "bg-emerald-400": status === "offer",
+                  "bg-gray-200": status === Status.Applied,
+                  "bg-rose-400": status === Status.Rejected,
+                  "bg-yellow-400": status === Status.Interviewing,
+                  "bg-emerald-400": status === Status.Offer,
                 }
               )}
             >
-              {status}
+              {status.toLocaleLowerCase()}
             </dd>
           </dl>
         </td>
         <td className="hidden sm:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
           <p
             className={clsx("rounded-full w-fit px-3 py-1", {
-              "bg-gray-200": status === "applied",
-              "bg-rose-400": status === "rejected",
-              "bg-yellow-400": status === "interviewing",
-              "bg-emerald-400": status === "offer",
+              "bg-gray-200": status === Status.Applied,
+              "bg-rose-400": status === Status.Rejected,
+              "bg-yellow-400": status === Status.Interviewing,
+              "bg-emerald-400": status === Status.Offer,
             })}
           >
-            {status}
+            {status.toLocaleLowerCase()}
           </p>
         </td>
         <td className="hidden lg:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 whitespace-nowrap">
-          {convertUnixToDateString(date)}
+          {date}
         </td>
         <td className="border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 max-w-prose">
           {note}

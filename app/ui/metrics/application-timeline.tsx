@@ -10,7 +10,8 @@ const ApplicationTimeline: React.FC<{
 
   // Filter applications for current year
   const applicationsThisYear: ApplicationProp[] = applications.filter(
-    (app) => new Date(app.date * 1000).getFullYear() === currentYear
+    (app) =>
+      new Date(parseInt(app.created) * 1000).getFullYear() === currentYear
   );
 
   // Initialize an array to hold the count of applications for each month
@@ -18,7 +19,7 @@ const ApplicationTimeline: React.FC<{
 
   // Count applications for each month
   applicationsThisYear.forEach((app) => {
-    const month: number = new Date(app.date * 1000).getMonth();
+    const month: number = new Date(parseInt(app.date) * 1000).getMonth();
     monthlyApplicationCounts[month]++;
   });
 

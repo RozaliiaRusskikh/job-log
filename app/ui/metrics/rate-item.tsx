@@ -83,8 +83,8 @@ const RateItem: React.FC<RateItemProps> = ({
         <div className="relative w-full h-4 bg-gray-200 rounded-md mt-2">
           <div
             className={clsx("absolute top-0 left-0 h-full rounded-md", {
-              "bg-rose-400": status === "rejected",
-              "bg-emerald-400": status === "interviewing",
+              "bg-rose-400": status === "REJECTED",
+              "bg-emerald-400": status === "INTERVIEWING",
             })}
             style={{ width: `${calculateRate(applications)}%` }}
           ></div>

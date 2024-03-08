@@ -51,9 +51,10 @@ model Application {
   updatedAt          DateTime @updatedAt
   company            String
   position           String
-  status             String
+  status             String   @default("APPLIED")
   note               String?
   jobDescriptionLink String
+  date               String
 
   userId String
   user   User   @relation(fields: [userId], references: [id])

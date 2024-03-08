@@ -1,4 +1,5 @@
 import { ApplicationProp } from "@/app/lib/definitions";
+import { createApplication } from "@/app/lib/actions/create-application";
 
 interface FormProps {
   type: string;
@@ -11,7 +12,7 @@ const Form: React.FC<FormProps> = ({ type, initialValues }) => {
       <h2 className="text-center font-bold text-md md:text-lg mt-7 capitalize">
         {type} Job Application
       </h2>
-      <form className="w-full">
+      <form action={createApplication} className="w-full">
         <div>
           <label
             className="mb-2 mt-5 block text-sm font-semibold text-gray-900"
@@ -99,10 +100,10 @@ const Form: React.FC<FormProps> = ({ type, initialValues }) => {
               required
               className="text-sm border border-slate-300 text-gray-900 py-[9px] p-2.5 outline-2  outline-emerald-500 rounded-md focus:ring-emerald-500 focus:border-emerald-500 w-1/2"
             >
-              <option value="interviewing">Interviewing</option>
-              <option value="applied">Applied</option>
-              <option value="offer">Offer</option>
-              <option value="rejected">Rejected</option>
+              <option value="INTERVIEWING">INTERVIEWING</option>
+              <option value="APPLIED">APPLIED</option>
+              <option value="OFFER">OFFER</option>
+              <option value="REJECTED">REJECTED</option>
             </select>
           </div>
         )}

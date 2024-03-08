@@ -37,13 +37,13 @@ const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
   // Define colors based on status
   const backgroundColors = labels.map((status) => {
     switch (status) {
-      case "applied":
+      case "APPLIED":
         return "rgba(173, 181, 189, 0.6)";
-      case "rejected":
+      case "REJECTED":
         return "rgba(247, 64, 78, 0.6)";
-      case "interviewing":
+      case "INTERVIEWING":
         return "rgba(251, 191, 36, 0.6)";
-      case "offer":
+      case "OFFER":
         return "rgba(0, 214, 132, 0.6)";
       default:
         return "rgba(0, 0, 0, 0.6)";
