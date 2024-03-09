@@ -5,13 +5,23 @@ import Tips from "@/app/ui/metrics/tips";
 import Rates from "@/app/ui/metrics/rates";
 import ApplicationTimeline from "@/app/ui/metrics/application-timeline";
 import { fetchAllUserApplications } from "../../lib/data";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import Unauthorized from "@/app/ui/job-application-table/unauthorized";
 
 export const metadata: Metadata = {
   title: "Metrics",
 };
 
 const Metrics = async () => {
+  const session = await getServerSession(authOptions);
+
   const applications = await fetchAllUserApplications();
+
+  if (!session) {
+    return <Unauthorized />;
+  }
+
   return (
     <section className="text-sm md:text-base min-h-screen">
       {!!applications?.length ? (

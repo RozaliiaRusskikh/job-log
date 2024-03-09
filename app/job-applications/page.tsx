@@ -5,22 +5,19 @@ import AddApplication from "../ui/crud-applications/add-application";
 import { fetchAllUserApplications } from "../lib/data";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../api/auth/[...nextauth]/route";
+import Unauthorized from "../ui/job-application-table/unauthorized";
 
 export const metadata: Metadata = {
   title: "Job Applications",
 };
 
-export async function getSession() {
-  return await getServerSession(authOptions);
-}
-
 const JobApplications = async () => {
-  const session = await getSession();
+  const session = await getServerSession(authOptions);
 
   const applications = await fetchAllUserApplications();
 
-  if (!session?.user?.email) {
-    return "No authorized";
+  if (!session) {
+    return <Unauthorized />;
   }
 
   return (
