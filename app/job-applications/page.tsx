@@ -3,13 +3,26 @@ import Table from "../ui/job-application-table/table";
 import Search from "../ui/job-application-table/search";
 import AddApplication from "../ui/crud-applications/add-application";
 import { fetchAllUserApplications } from "../lib/data";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "../api/auth/[...nextauth]/route";
 
 export const metadata: Metadata = {
   title: "Job Applications",
 };
 
+export async function getSession() {
+  return await getServerSession(authOptions);
+}
+
 const JobApplications = async () => {
+  const session = await getSession();
+
   const applications = await fetchAllUserApplications();
+
+  if (!session?.user?.email) {
+    return "No authorized";
+  }
+
   return (
     <section className="text-sm md:text-base min-h-screen">
       <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">

@@ -25,7 +25,7 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
         </td>
         <td className="font-bold lg:font-normal leading-tight lg:leading-normal border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 text-gray-800">
           <a
-            className="cursor-pointer decoration-2 decoration-emerald-200 underline hover:decoration-emerald-500 transition-all"
+            className="cursor-pointer decoration-2 decoration-emerald-500 underline hover:text-emerald-600 transition-colors"
             target="_blank"
             href={jobDescriptionLink}
           >
@@ -88,7 +88,7 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
         onClose={toggleModal}
         label="Edit a job application"
       >
-        <Form type="edit" initialValues={data} />
+        <Form type="edit" initialValues={data} closeModal={toggleModal} />
       </CustomModal>
     </>
   );

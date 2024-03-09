@@ -3,7 +3,6 @@
 import { z } from "zod";
 import prisma from "@/app/lib/prismadb";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 import getCurrentUser from "../actions/get-current-user";
 
 const FormSchema = z.object({
