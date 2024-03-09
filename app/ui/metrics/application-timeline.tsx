@@ -11,7 +11,7 @@ const ApplicationTimeline: React.FC<{
   // Filter applications for current year
   const applicationsThisYear: ApplicationProp[] = applications.filter(
     (app) =>
-      new Date(parseInt(app.created) * 1000).getFullYear() === currentYear
+      new Date(parseInt(app.createdAt) * 1000).getFullYear() === currentYear
   );
 
   // Initialize an array to hold the count of applications for each month
@@ -46,8 +46,8 @@ const ApplicationTimeline: React.FC<{
       {
         label: "Amount of job applications",
         data: monthlyApplicationCounts,
-        backgroundColor: "rgba(54, 162, 235, 0.6)",
-        borderColor: "rgba(54, 162, 235, 1)",
+        backgroundColor: "rgb(16,185,129, 0.6)",
+        borderColor: "rgb(16,185,129, 1)",
         borderWidth: 1,
       },
     ],
@@ -77,7 +77,7 @@ const ApplicationTimeline: React.FC<{
 
   // Return the component with the bar chart
   return (
-    <div className="w-full mb-10 flex flex-col items-center">
+    <div className="w-full md:w-3/4 mb-10 flex flex-col items-center">
       <h2 className="font-bold text-center italic mb-4 text-base md:text-lg min-w-36">
         Job Application Timeline for the {currentYear} year:
       </h2>

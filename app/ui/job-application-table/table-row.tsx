@@ -25,7 +25,7 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
         </td>
         <td className="font-bold lg:font-normal leading-tight lg:leading-normal border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 text-gray-800">
           <a
-            className="cursor-pointer hover:decoration-2 hover:decoration-emerald-500 hover:underline transition-all"
+            className="cursor-pointer decoration-2 decoration-emerald-200 underline hover:decoration-emerald-500 transition-all"
             target="_blank"
             href={jobDescriptionLink}
           >
@@ -34,7 +34,7 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
           </a>
           <dl className="lg:hidden">
             <dt className="sr-only">Company</dt>
-            <dd>at {company},</dd>
+            <dd>@ {company},</dd>
             <dt className="sr-only">Date</dt>
             <dd className="font-normal text-gray-700 mt-1 leading-normal">
               {date}
