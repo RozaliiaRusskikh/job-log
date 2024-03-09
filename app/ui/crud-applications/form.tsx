@@ -4,15 +4,16 @@ import { createApplication } from "@/app/lib/actions/create-application";
 interface FormProps {
   type: string;
   initialValues?: ApplicationProp;
+  closeModal: () => void;
 }
 
-const Form: React.FC<FormProps> = ({ type, initialValues }) => {
+const Form: React.FC<FormProps> = ({ type, initialValues, closeModal }) => {
   return (
     <section>
       <h2 className="text-center font-bold text-md md:text-lg mt-7 capitalize">
         {type} Job Application
       </h2>
-      <form action={createApplication} className="w-full">
+      <form onSubmit={closeModal} action={createApplication} className="w-full">
         <div>
           <label
             className="mb-2 mt-5 block text-sm font-semibold text-gray-900"

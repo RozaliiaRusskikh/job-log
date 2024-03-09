@@ -30,7 +30,7 @@ const AddApplication = () => {
         onClose={toggleModal}
         label="Add a job application"
       >
-        <Form type="add" />
+        <Form type="add" closeModal={toggleModal} />
       </CustomModal>
     </>
   );

@@ -64,7 +64,7 @@ const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
   };
 
   return (
-    <div className="w-full md:w-4/5 mb-10">
+    <div className="w-full md:w-1/2 mb-10">
       <Pie data={chartData} />
     </div>
   );
