@@ -131,20 +131,20 @@ export default function Row({ data, value }: RowProps) {
           <form
             action={onDelete}
             onSubmit={closeDeleteModal}
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-5"
           >
             <p>Are you sure you want to delete this job application?</p>
             <div className="flex gap-6">
               <button
                 type="submit"
-                className="font-bold rounded-lg bg-emerald-400 px-3 py-1 text-sm transition-colors hover:bg-emerald-500 md:text-base border-2 border-emerald-500"
+                className="font-bold rounded-lg bg-emerald-400 px-5 py-2 text-sm transition-colors hover:bg-emerald-500 md:text-base border-2 border-emerald-500"
               >
                 YES
               </button>
               <button
                 type="button"
                 onClick={closeDeleteModal}
-                className="font-bold rounded-lg bg-rose-400 px-3 py-1 text-sm transition-colors hover:bg-rose-500 md:text-base border-2 border-rose-500"
+                className="font-bold rounded-lg bg-rose-400 px-5 py-2 text-sm transition-colors hover:bg-rose-500 md:text-base border-2 border-rose-500"
               >
                 NO
               </button>

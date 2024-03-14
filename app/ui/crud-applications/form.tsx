@@ -1,6 +1,8 @@
+"use client";
 import { ApplicationProp } from "@/app/lib/definitions";
 import { createApplication } from "@/app/lib/actions/create-application";
 import { toast } from "react-hot-toast";
+import { useFormStatus } from "react-dom";
 
 interface FormProps {
   type: string;
@@ -18,7 +20,7 @@ const Form: React.FC<FormProps> = ({ type, initialValues, closeModal }) => {
         toast.success(result.message);
       }
     } catch (error) {
-      console.error("Error deleting application:", error);
+      console.error("Error creating application:", error);
     }
   }
 
@@ -132,9 +134,18 @@ const Form: React.FC<FormProps> = ({ type, initialValues, closeModal }) => {
 
 export default Form;
 
-const LoginButton: React.FC<{ type: string }> = ({ type }) => {
+interface LoginButtonProps {
+  type: string;
+}
+
+const LoginButton: React.FC<LoginButtonProps> = ({ type }) => {
+  const { pending } = useFormStatus();
+
   return (
-    <button className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 capitalize">
+    <button
+      aria-disabled={pending}
+      className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 capitalize"
+    >
       {type} item
     </button>
   );
