@@ -1,6 +1,6 @@
 "use client";
 
-import { Status, ApplicationProp } from "@/app/lib/definitions";
+import { ApplicationProp } from "@/app/lib/definitions";
 import clsx from "clsx";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import { TrashIcon } from "@heroicons/react/24/outline";
@@ -44,10 +44,10 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
               className={clsx(
                 "rounded-full w-fit px-3 py-1 sm:hidden mt-1 leading-normal font-normal",
                 {
-                  "bg-gray-200": status === Status.Applied,
-                  "bg-rose-400": status === Status.Rejected,
-                  "bg-yellow-400": status === Status.Interviewing,
-                  "bg-emerald-400": status === Status.Offer,
+                  "bg-gray-200": status === "APPLIED",
+                  "bg-rose-400": status === "REJECTED",
+                  "bg-yellow-400": status === "INTERVIEWING",
+                  "bg-emerald-400": status === "OFFER",
                 }
               )}
             >
@@ -58,10 +58,10 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
         <td className="hidden sm:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
           <p
             className={clsx("rounded-full w-fit px-3 py-1", {
-              "bg-gray-200": status === Status.Applied,
-              "bg-rose-400": status === Status.Rejected,
-              "bg-yellow-400": status === Status.Interviewing,
-              "bg-emerald-400": status === Status.Offer,
+              "bg-gray-200": status === "APPLIED",
+              "bg-rose-400": status === "REJECTED",
+              "bg-yellow-400": status === "INTERVIEWING",
+              "bg-emerald-400": status === "OFFER",
             })}
           >
             {status.toLocaleLowerCase()}

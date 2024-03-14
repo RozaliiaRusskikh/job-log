@@ -82,22 +82,39 @@ const Rates: React.FC<RejectionRateProps> = ({ applications }) => {
     },
   ];
 
+  const interviewingApplicationsFound = applications.find(
+    (application) => application.status === "INTERVIEWING"
+  );
+  const rejectedApplicationsFound = applications.find(
+    (application) => application.status === "REJECTED"
+  );
+
   return (
     <div>
-      <h2 className="font-bold text-center italic mb-2 md:mb-4 text-base md:text-lg">
-        Job Application Statistics:
-      </h2>
+      {(interviewingApplicationsFound || rejectedApplicationsFound) && (
+        <h2 className="font-bold text-center italic mb-2 md:mb-4 text-base md:text-lg">
+          Job Application Statistics:
+        </h2>
+      )}
       <div className="flex flex-col md:flex-row md:gap-4 w-full">
-        {rates.map((rate, index) => (
+        {interviewingApplicationsFound && (
           <RateItem
-            key={index}
-            status={rate.status}
-            categories={rate.categories}
-            title={rate.title}
+            status={rates[0].status}
+            categories={rates[0].categories}
+            title={rates[0].title}
             applications={applications}
-            modalTitle={rate.modalTitle}
+            modalTitle={rates[0].modalTitle}
           />
-        ))}
+        )}
+        {rejectedApplicationsFound && (
+          <RateItem
+            status={rates[1].status}
+            categories={rates[1].categories}
+            title={rates[1].title}
+            applications={applications}
+            modalTitle={rates[1].modalTitle}
+          />
+        )}
       </div>
     </div>
   );
