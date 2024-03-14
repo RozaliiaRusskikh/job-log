@@ -20,7 +20,7 @@ const AddApplication = () => {
           className="relative rounded-full shadow-md bg-slate-100 opacity-80 group"
         >
           <PlusCircleIcon className="w-16 h-16 md:w-20 md:h-20 text-emerald-700 hover:text-slate-500 transition-colors" />
-          <span className="hidden absolute bottom-full left-1/2 transform -translate-x-1/2 text-sm md:text-base  text-emerald-700 font-bold group-hover:block transition-all">
+          <span className="uppercase hidden absolute bottom-full left-1/2 transform -translate-x-1/2 text-sm md:text-base  text-emerald-700 font-bold group-hover:block transition-all">
             Add Job Application
           </span>
         </button>

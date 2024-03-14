@@ -8,6 +8,7 @@ import { useState } from "react";
 import CustomModal from "../job-application-table/modal";
 import Form from "../crud-applications/form";
 import { deleteApplication } from "@/app/lib/actions/delete-application";
+import { toast } from "react-hot-toast";
 
 interface RowProps {
   data: ApplicationProp;
@@ -18,7 +19,7 @@ export default function Row({ data, value }: RowProps) {
   const { company, position, status, date, note, jobDescriptionLink } = data;
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
 
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
@@ -27,6 +28,20 @@ export default function Row({ data, value }: RowProps) {
   const handleDelete = () => {
     setShowDeleteModal(true);
   };
+
+  async function onDelete(formData: FormData) {
+    try {
+      const result = await deleteApplication(formData);
+      if (result.message.includes("error")) {
+        toast.error(result.message);
+      } else {
+        toast.success(result.message);
+      }
+    } catch (error) {
+      console.error("Error deleting application:", error);
+    }
+  }
+
   const closeDeleteModal = () => {
     setShowDeleteModal(false);
   };
@@ -114,7 +129,7 @@ export default function Row({ data, value }: RowProps) {
       >
         <div>
           <form
-            action={deleteApplication}
+            action={onDelete}
             onSubmit={closeDeleteModal}
             className="flex flex-col items-center gap-3"
           >

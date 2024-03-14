@@ -24,26 +24,31 @@ const CreateApplication = FormSchema.omit({
 });
 
 export async function createApplication(formData: FormData) {
-  const { company, position, jobDescriptionLink, note } =
-    CreateApplication.parse({
-      company: formData.get("company"),
-      position: formData.get("position"),
-      jobDescriptionLink: formData.get("jb-link"),
-      note: formData.get("note"),
+  try {
+    const { company, position, jobDescriptionLink, note } =
+      CreateApplication.parse({
+        company: formData.get("company"),
+        position: formData.get("position"),
+        jobDescriptionLink: formData.get("jb-link"),
+        note: formData.get("note"),
+      });
+
+    const date = new Date().toISOString().split("T")[0];
+    const user = await getCurrentUser();
+
+    await prisma.application.create({
+      data: {
+        position: position,
+        company: company,
+        userId: user?.id as string,
+        jobDescriptionLink: jobDescriptionLink,
+        note: note,
+        date: date,
+      },
     });
-
-  const date = new Date().toISOString().split("T")[0];
-  const user = await getCurrentUser();
-
-  await prisma.application.create({
-    data: {
-      position: position,
-      company: company,
-      userId: user?.id as string,
-      jobDescriptionLink: jobDescriptionLink,
-      note: note,
-      date: date,
-    },
-  });
-  revalidatePath("/job-applications");
+    revalidatePath("/job-applications");
+    return { message: "Job application has been added" };
+  } catch (error) {
+    return { message: "There is an error adding a job application" };
+  }
 }
