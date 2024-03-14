@@ -90,7 +90,9 @@ const Form: React.FC<FormProps> = ({ type, initialValues, closeModal }) => {
             Note
           </label>
           <textarea
-            defaultValue={initialValues ? initialValues.note : ""}
+            defaultValue={
+              initialValues ? (initialValues.note as string) || "" : ""
+            }
             className="block w-full rounded-md border border-slate-300 py-[9px] pl-2 text-sm outline-2 outline-emerald-500 placeholder:text-gray-500"
             id="note"
             name="note"
