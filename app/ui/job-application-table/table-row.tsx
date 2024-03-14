@@ -7,14 +7,28 @@ import { TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import CustomModal from "../job-application-table/modal";
 import Form from "../crud-applications/form";
+import { deleteApplication } from "@/app/lib/actions/delete-application";
 
-const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
+interface RowProps {
+  data: ApplicationProp;
+  value: string;
+}
+
+export default function Row({ data, value }: RowProps) {
   const { company, position, status, date, note, jobDescriptionLink } = data;
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
+  };
+
+  const handleDelete = () => {
+    setShowDeleteModal(true);
+  };
+  const closeDeleteModal = () => {
+    setShowDeleteModal(false);
   };
 
   return (
@@ -79,7 +93,9 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
               onClick={toggleModal}
               className="w-4 md:w-5 text-gray-700 cursor-pointer hover:text-emerald-300 transition-colors"
             />
-            <TrashIcon className="w-4 md:w-5 text-gray-700 cursor-pointer hover:text-emerald-300 transition-colors" />
+            <button type="button" onClick={handleDelete}>
+              <TrashIcon className="w-4 md:w-5 text-gray-700 cursor-pointer hover:text-emerald-300 transition-colors" />
+            </button>
           </div>
         </td>
       </tr>
@@ -90,7 +106,45 @@ const Row: React.FC<{ data: ApplicationProp }> = ({ data }) => {
       >
         <Form type="edit" initialValues={data} closeModal={toggleModal} />
       </CustomModal>
+
+      <CustomModal
+        isOpen={showDeleteModal}
+        onClose={closeDeleteModal}
+        label="Delete a job application "
+      >
+        <div>
+          <form
+            action={deleteApplication}
+            onSubmit={closeDeleteModal}
+            className="flex flex-col items-center gap-3"
+          >
+            <p>Are you sure you want to delete this job application?</p>
+            <div className="flex gap-6">
+              <button
+                type="submit"
+                onClick={closeDeleteModal}
+                className="font-bold rounded-lg bg-emerald-400 px-3 py-1 text-sm transition-colors hover:bg-emerald-500 md:text-base border-2 border-emerald-500"
+              >
+                YES
+              </button>
+              <button
+                type="button"
+                onClick={closeDeleteModal}
+                className="font-bold rounded-lg bg-rose-400 px-3 py-1 text-sm transition-colors hover:bg-rose-500 md:text-base border-2 border-rose-500"
+              >
+                NO
+              </button>
+            </div>
+            <input
+              className="text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6 border w-full border-gray-200 p-2 rounded-md py-1.5"
+              name="applicationId"
+              type="hidden"
+              value={value}
+              required
+            />
+          </form>
+        </div>
+      </CustomModal>
     </>
   );
-};
-export default Row;
+}
