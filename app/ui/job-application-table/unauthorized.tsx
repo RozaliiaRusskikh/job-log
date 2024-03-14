@@ -14,7 +14,7 @@ const Unauthorized = () => {
           >
             log in{" "}
           </Link>{" "}
-          to browse this content
+          to browse this content.
         </h2>
       </div>
     </main>

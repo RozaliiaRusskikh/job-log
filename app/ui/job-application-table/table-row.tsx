@@ -122,7 +122,6 @@ export default function Row({ data, value }: RowProps) {
             <div className="flex gap-6">
               <button
                 type="submit"
-                onClick={closeDeleteModal}
                 className="font-bold rounded-lg bg-emerald-400 px-3 py-1 text-sm transition-colors hover:bg-emerald-500 md:text-base border-2 border-emerald-500"
               >
                 YES
