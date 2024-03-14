@@ -1,5 +1,6 @@
 import { ApplicationProp } from "@/app/lib/definitions";
 import { createApplication } from "@/app/lib/actions/create-application";
+import { toast } from "react-hot-toast";
 
 interface FormProps {
   type: string;
@@ -8,12 +9,25 @@ interface FormProps {
 }
 
 const Form: React.FC<FormProps> = ({ type, initialValues, closeModal }) => {
+  async function onCreate(formData: FormData) {
+    try {
+      const result = await createApplication(formData);
+      if (result.message.includes("error")) {
+        toast.error(result.message);
+      } else {
+        toast.success(result.message);
+      }
+    } catch (error) {
+      console.error("Error deleting application:", error);
+    }
+  }
+
   return (
     <section>
       <h2 className="text-center font-bold text-md md:text-lg mt-7 capitalize">
         {type} Job Application
       </h2>
-      <form onSubmit={closeModal} action={createApplication} className="w-full">
+      <form onSubmit={closeModal} action={onCreate} className="w-full">
         <div>
           <label
             className="mb-2 mt-5 block text-sm font-semibold text-gray-900"
