@@ -59,7 +59,7 @@ const RateItem: React.FC<RateItemProps> = ({
           />
         </p>
         <div className="flex justify-center gap-1 items-center">
-          {status === "interviewing" ? (
+          {status === "INTERVIEWING" ? (
             <BriefcaseIcon
               onClick={toggleModal}
               className="h-[45px] w-[45px] text-emerald-700 cursor-pointer animate-pulse hover:scale-105 transition-transform"
