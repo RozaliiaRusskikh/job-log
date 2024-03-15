@@ -32,7 +32,7 @@ export default function Row({ data, value }: RowProps) {
   const closeModal = () => {
     setTimeout(() => {
       setIsModalOpen(false);
-    }, 1000);
+    }, 200);
   };
 
   async function onDelete(formData: FormData) {
