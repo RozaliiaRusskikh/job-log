@@ -1,7 +1,3 @@
-import { PencilIcon } from "@heroicons/react/24/outline";
-import { TrashIcon } from "@heroicons/react/24/outline";
-import { ChevronUpIcon } from "@heroicons/react/24/outline";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 function SearchSkeleton() {
@@ -18,16 +14,15 @@ function SearchSkeleton() {
 
 function TableRowSkeleton() {
   return (
-    <tr className="hover:bg-gray-50 active:bg-emerald-100 align-top">
+    <tr className="align-top">
       <td className="hidden lg:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
-        <div className="h-6 w-32 rounded bg-gray-100"></div>
+        <div className="h-6 w-10 md:w-32 rounded bg-gray-100"></div>
       </td>
       <td className="font-bold lg:font-normal leading-tight lg:leading-normal border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 text-gray-800">
         <div className="h-6 w-32 rounded bg-gray-100"></div>
         <dl className="lg:hidden">
           <dt className="sr-only">Company</dt>
           <dd>
-            {" "}
             <div className="h-6 w-32 rounded bg-gray-100"></div>
           </dd>
           <dt className="sr-only">Date</dt>
@@ -35,13 +30,15 @@ function TableRowSkeleton() {
             <div className="h-6 w-32 rounded bg-gray-100"></div>
           </dd>
           <dt className="sr-only sm:hidden">Status</dt>
-          <dd>
+          <dd className="sm:hidden">
             <div className="h-6 w-32 rounded bg-gray-100"></div>
           </dd>
         </dl>
       </td>
       <td className="hidden sm:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
-        <div className="h-6 w-32 rounded bg-gray-100"></div>
+        <p className="rounded">
+          <div className="h-6 w-32 rounded bg-gray-100"></div>
+        </p>
       </td>
       <td className="hidden lg:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 whitespace-nowrap">
         <div className="h-6 w-32 rounded bg-gray-100"></div>
@@ -66,31 +63,19 @@ function TableSkeleton() {
         <tr>
           <th className="relative hidden lg:table-cell align-top border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
             <div className="h-6 w-32 rounded bg-gray-300 animate-pulse"></div>
-            <div className="inline-block ml-1 absolute right-2 top-3.5">
-              <ChevronUpIcon className="w-[14px] h-[14px] cursor-pointer text-emerald-800" />
-              <ChevronDownIcon className="w-[14px] h-[14px] cursor-pointer  text-emerald-800" />
-            </div>
+            <div className="inline-block ml-1 absolute right-2 top-3.5"></div>
           </th>
           <th className="relative border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
             <div className="h-6 w-32 rounded bg-gray-300 animate-pulse"></div>
-            <div className="hidden lg:inline-block ml-1 absolute right-2 top-3.5">
-              <ChevronUpIcon className="w-[14px] h-[14px] cursor-pointer text-emerald-800" />
-              <ChevronDownIcon className="w-[14px] h-[14px] cursor-pointer text-emerald-800" />
-            </div>
+            <div className="hidden lg:inline-block ml-1 absolute right-2 top-3.5"></div>
           </th>
           <th className="relative hidden sm:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
             <div className="h-6 w-32 rounded bg-gray-300 animate-pulse"></div>
-            <div className="hidden sm:inline-block ml-1 absolute right-2 md:top-3.5 top-1">
-              <ChevronUpIcon className="w-[14px] h-[14px] cursor-pointer   text-emerald-800" />
-              <ChevronDownIcon className="w-[14px] h-[14px] cursor-pointer text-emerald-800" />
-            </div>
+            <div className="hidden sm:inline-block ml-1 absolute right-2 md:top-3.5 top-1"></div>
           </th>
           <th className="relative hidden lg:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
             <div className="h-6 w-32 rounded bg-gray-300 animate-pulse"></div>
-            <div className="inline-block ml-1 absolute right-2 top-3.5">
-              <ChevronUpIcon className="w-[14px] h-[14px] cursor-pointer   text-emerald-800" />
-              <ChevronDownIcon className="w-[14px] h-[14px] cursor-pointer text-emerald-800" />
-            </div>
+            <div className="inline-block ml-1 absolute right-2 top-3.5"></div>
           </th>
           <th className="border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
             <div className="h-6 w-32 rounded bg-gray-300 animate-pulse"></div>
@@ -116,9 +101,9 @@ function TableSkeleton() {
 export function ApplicationDashboardSkeleton() {
   return (
     <section className="text-sm md:text-base min-h-screen">
-      <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-x-auto">
+      <div className="w-full my-4 md:my-8 p-4 md:p-8 bg-white rounded-lg overflow-hidden">
         <h1 className="font-bold pb-4 text-md md:text-lg">
-          <div className="h-6 w-32 rounded bg-gray-100 animate-pulse"></div>
+          <div className="h-6 w-48 rounded bg-gray-100 animate-pulse"></div>
         </h1>
         <SearchSkeleton />
         <TableSkeleton />
