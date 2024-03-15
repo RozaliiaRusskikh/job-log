@@ -1,5 +1,6 @@
 import prisma from "@/app/lib/prismadb";
 import getCurrentUser from "./actions/get-current-user";
+import { getEmbedding } from "./openai";
 
 export async function fetchAllUserApplications() {
   try {
@@ -18,4 +19,16 @@ export async function fetchAllUserApplications() {
     console.error("Database Error:", error);
     throw new Error("Failed to fetch application data.");
   }
+}
+
+export async function getEmbeddingForApplication(
+  company: string,
+  position: string,
+  jobDescriptionLink: string,
+  note: string | undefined
+) {
+  return getEmbedding(
+    company + "/n/n" + position + "/n/n" + jobDescriptionLink + "/n/n" + note ??
+      ""
+  );
 }

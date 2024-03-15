@@ -4,6 +4,7 @@ import { z } from "zod";
 import prisma from "@/app/lib/prismadb";
 import { revalidatePath } from "next/cache";
 import getCurrentUser from "../actions/get-current-user";
+import { getEmbeddingForApplication } from "../data";
 
 const FormSchema = z.object({
   id: z.string(),
@@ -35,6 +36,13 @@ export async function createApplication(formData: FormData) {
 
     const date = new Date().toISOString().split("T")[0];
     const user = await getCurrentUser();
+
+    const embedding = await getEmbeddingForApplication(
+      company,
+      position,
+      jobDescriptionLink,
+      note
+    );
 
     await prisma.application.create({
       data: {
