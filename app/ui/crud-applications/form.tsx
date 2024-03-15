@@ -1,6 +1,7 @@
 "use client";
 import { ApplicationProp } from "@/app/lib/definitions";
 import { createApplication } from "@/app/lib/actions/create-application";
+import { updateApplication } from "@/app/lib/actions/update-application";
 import { toast } from "react-hot-toast";
 import { useFormStatus } from "react-dom";
 
@@ -8,9 +9,15 @@ interface FormProps {
   type: string;
   initialValues?: ApplicationProp;
   closeModal: () => void;
+  value?: string;
 }
 
-const Form: React.FC<FormProps> = ({ type, initialValues, closeModal }) => {
+const Form: React.FC<FormProps> = ({
+  type,
+  initialValues,
+  closeModal,
+  value,
+}) => {
   async function onCreate(formData: FormData) {
     try {
       const result = await createApplication(formData);
@@ -24,12 +31,30 @@ const Form: React.FC<FormProps> = ({ type, initialValues, closeModal }) => {
     }
   }
 
+  async function onUpdate(formData: FormData) {
+    try {
+      const result = await updateApplication(value as string, formData);
+      if (result.message.includes("error")) {
+        toast.error(result.message);
+      } else {
+        toast.success(result.message);
+      }
+      return updateApplication.bind(null, value as string);
+    } catch (error) {
+      console.error("Error updating application:", error);
+    }
+  }
+
   return (
     <section>
       <h2 className="text-center font-bold text-md md:text-lg mt-7 capitalize">
         {type} Job Application
       </h2>
-      <form onSubmit={closeModal} action={onCreate} className="w-full">
+      <form
+        onSubmit={closeModal}
+        action={type === "edit" ? onUpdate : onCreate}
+        className="w-full"
+      >
         <div>
           <label
             className="mb-2 mt-5 block text-sm font-semibold text-gray-900"
@@ -124,6 +149,7 @@ const Form: React.FC<FormProps> = ({ type, initialValues, closeModal }) => {
               <option value="OFFER">OFFER</option>
               <option value="REJECTED">REJECTED</option>
             </select>
+            <input type="hidden" name="applicationId" value={value} />
           </div>
         )}
         <LoginButton type={type} />

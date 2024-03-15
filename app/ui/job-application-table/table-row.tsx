@@ -29,6 +29,12 @@ export default function Row({ data, value }: RowProps) {
     setShowDeleteModal(true);
   };
 
+  const closeModal = () => {
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 100);
+  };
+
   async function onDelete(formData: FormData) {
     try {
       const result = await deleteApplication(formData);
@@ -119,7 +125,12 @@ export default function Row({ data, value }: RowProps) {
         onClose={toggleModal}
         label="Edit a job application"
       >
-        <Form type="edit" initialValues={data} closeModal={toggleModal} />
+        <Form
+          type="edit"
+          initialValues={data}
+          closeModal={closeModal}
+          value={value}
+        />
       </CustomModal>
 
       <CustomModal
@@ -149,13 +160,7 @@ export default function Row({ data, value }: RowProps) {
                 NO
               </button>
             </div>
-            <input
-              className="text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-primary sm:text-sm sm:leading-6 border w-full border-gray-200 p-2 rounded-md py-1.5"
-              name="applicationId"
-              type="hidden"
-              value={value}
-              required
-            />
+            <input name="applicationId" type="hidden" value={value} required />
           </form>
         </div>
       </CustomModal>
