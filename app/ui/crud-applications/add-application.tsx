@@ -15,7 +15,7 @@ const AddApplication = () => {
   const closeModal = () => {
     setTimeout(() => {
       setIsModalOpen(false);
-    }, 100);
+    }, 1000);
   };
 
   return (

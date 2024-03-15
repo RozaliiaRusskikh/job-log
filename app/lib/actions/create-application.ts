@@ -5,6 +5,7 @@ import prisma from "@/app/lib/prismadb";
 import { revalidatePath } from "next/cache";
 import getCurrentUser from "../actions/get-current-user";
 import { getEmbeddingForApplication } from "../data";
+import { applicationsIndex } from "../pinecone";
 
 const FormSchema = z.object({
   id: z.string(),
@@ -44,16 +45,29 @@ export async function createApplication(formData: FormData) {
       note
     );
 
-    await prisma.application.create({
-      data: {
-        position: position,
-        company: company,
-        userId: user?.id as string,
-        jobDescriptionLink: jobDescriptionLink,
-        note: note,
-        date: date,
-      },
+    await prisma.$transaction(async (tx) => {
+      const application = await tx.application.create({
+        data: {
+          position: position,
+          company: company,
+          userId: user?.id as string,
+          jobDescriptionLink: jobDescriptionLink,
+          note: note,
+          date: date,
+        },
+      });
+
+      await applicationsIndex.upsert([
+        {
+          id: application.id,
+          values: embedding,
+          metadata: { userId: user?.id || "unknown" },
+        },
+      ]);
+
+      return application;
     });
+
     revalidatePath("/job-applications");
     return { message: "Job application has been added" };
   } catch (error) {
