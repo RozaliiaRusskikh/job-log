@@ -37,7 +37,9 @@ export default function Home() {
   }
 
   if (session?.status === "loading") {
-    <Loading />;
+    <div className="mb-2 flex items-center justify-center h-screen bg-gray-100">
+      <Loading />;
+    </div>;
   }
 
   return (

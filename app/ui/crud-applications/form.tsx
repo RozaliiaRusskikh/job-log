@@ -146,7 +146,7 @@ const LoginButton: React.FC<LoginButtonProps> = ({ type }) => {
       aria-disabled={pending}
       className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 capitalize"
     >
-      {type} item
+      {pending ? `${type}ing item...` : `${type} item`}
     </button>
   );
 };

@@ -12,6 +12,12 @@ const AddApplication = () => {
     setIsModalOpen((prevState) => !prevState);
   };
 
+  const closeModal = () => {
+    setTimeout(() => {
+      setIsModalOpen(false);
+    }, 100);
+  };
+
   return (
     <>
       <div className="fixed bottom-5 right-7 md:bottom-10 md:right-12">
@@ -30,7 +36,7 @@ const AddApplication = () => {
         onClose={toggleModal}
         label="Add a job application"
       >
-        <Form type="add" closeModal={toggleModal} />
+        <Form type="add" closeModal={closeModal} />
       </CustomModal>
     </>
   );
