@@ -4,6 +4,7 @@ import { createApplication } from "@/app/lib/actions/create-application";
 import { updateApplication } from "@/app/lib/actions/update-application";
 import { toast } from "react-hot-toast";
 import { useFormStatus } from "react-dom";
+import { PaperClipIcon } from "@heroicons/react/24/outline";
 
 interface FormProps {
   type: string;
@@ -172,7 +173,14 @@ const LoginButton: React.FC<LoginButtonProps> = ({ type }) => {
       aria-disabled={pending}
       className="mt-4 py-3 w-full rounded-full  bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 capitalize"
     >
-      {pending ? `${type}ing item...` : `${type} item`}
+      {pending ? (
+        <p>
+          {`${type}ing item...`}{" "}
+          <PaperClipIcon className="w-[25px] h-[25px] inline animate-spin" />
+        </p>
+      ) : (
+        `${type} item`
+      )}
     </button>
   );
 };
