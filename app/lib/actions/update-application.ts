@@ -4,6 +4,8 @@ import { z } from "zod";
 import prisma from "@/app/lib/prismadb";
 import { revalidatePath } from "next/cache";
 import getCurrentUser from "../actions/get-current-user";
+import { getEmbeddingForApplication } from "../data";
+import { applicationsIndex } from "../pinecone";
 
 const FormSchema = z.object({
   id: z.string(),
@@ -38,19 +40,40 @@ export async function updateApplication(
 
     const user = await getCurrentUser();
 
-    await prisma.application.update({
-      data: {
-        position: position,
-        company: company,
-        userId: user?.id as string,
-        jobDescriptionLink: jobDescriptionLink,
-        note: note,
-        status: status,
-      },
-      where: {
-        id: applicationId,
-      },
+    const embedding = await getEmbeddingForApplication(
+      company,
+      position,
+      jobDescriptionLink,
+      note,
+      status
+    );
+
+    await prisma.$transaction(async (tx) => {
+      const application = await prisma.application.update({
+        data: {
+          position: position,
+          company: company,
+          userId: user?.id as string,
+          jobDescriptionLink: jobDescriptionLink,
+          note: note,
+          status: status,
+        },
+        where: {
+          id: applicationId,
+        },
+      });
+
+      await applicationsIndex.upsert([
+        {
+          id: application.id,
+          values: embedding,
+          metadata: { userId: user?.id || "unknown" },
+        },
+      ]);
+
+      return application;
     });
+
     revalidatePath("/job-applications");
     return { message: "Job application has been updated" };
   } catch (error) {

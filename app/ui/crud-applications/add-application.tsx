@@ -4,18 +4,13 @@ import { PlusCircleIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import CustomModal from "../job-application-table/modal";
 import Form from "./form";
+import { closeModal } from "@/app/lib/helper";
 
 const AddApplication = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const toggleModal = () => {
     setIsModalOpen((prevState) => !prevState);
-  };
-
-  const closeModal = () => {
-    setTimeout(() => {
-      setIsModalOpen(false);
-    }, 2000);
   };
 
   return (
@@ -36,7 +31,7 @@ const AddApplication = () => {
         onClose={toggleModal}
         label="Add a job application"
       >
-        <Form type="add" closeModal={closeModal} />
+        <Form type="add" closeModal={() => closeModal(setIsModalOpen)} />
       </CustomModal>
     </>
   );

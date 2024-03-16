@@ -9,6 +9,7 @@ import CustomModal from "../job-application-table/modal";
 import Form from "../crud-applications/form";
 import { deleteApplication } from "@/app/lib/actions/delete-application";
 import { toast } from "react-hot-toast";
+import { closeModal } from "../../lib/helper";
 
 interface RowProps {
   data: ApplicationProp;
@@ -27,12 +28,6 @@ export default function Row({ data, value }: RowProps) {
 
   const handleDelete = () => {
     setShowDeleteModal(true);
-  };
-
-  const closeModal = () => {
-    setTimeout(() => {
-      setIsModalOpen(false);
-    }, 200);
   };
 
   async function onDelete(formData: FormData) {
@@ -128,7 +123,7 @@ export default function Row({ data, value }: RowProps) {
         <Form
           type="edit"
           initialValues={data}
-          closeModal={closeModal}
+          closeModal={() => closeModal(setIsModalOpen)}
           value={value}
         />
       </CustomModal>
