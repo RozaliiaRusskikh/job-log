@@ -1,13 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import JobLogsLogo from "./ui/job-logs-logo";
+import JobLogsLogo from "../ui/job-logs-logo";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import googleIcon from "@/public/icons-google.svg";
-import Loading from "./ui/job-application-table/loading";
+import Loading from "../ui/job-application-table/loading";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);

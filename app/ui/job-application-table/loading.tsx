@@ -1,6 +1,6 @@
 import { PaperClipIcon } from "@heroicons/react/24/outline";
 
-const Loading = () => {
+const LoadingHomePage = () => {
   return (
     <div className="flex gap-3 justify-center items-center">
       <PaperClipIcon
@@ -13,4 +13,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default LoadingHomePage;
