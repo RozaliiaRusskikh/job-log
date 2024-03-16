@@ -36,9 +36,7 @@ function TableRowSkeleton() {
         </dl>
       </td>
       <td className="hidden sm:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4">
-        <p className="rounded">
-          <div className="h-6 w-32 rounded bg-gray-100"></div>
-        </p>
+        <div className="h-6 w-32 rounded bg-gray-100"></div>
       </td>
       <td className="hidden lg:table-cell border-collapse border border-slate-300 px-2 py-2 md:px-4 md:py-4 whitespace-nowrap">
         <div className="h-6 w-32 rounded bg-gray-100"></div>

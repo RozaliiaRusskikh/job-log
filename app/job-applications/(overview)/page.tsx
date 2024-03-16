@@ -1,11 +1,11 @@
 import { Metadata } from "next";
-import Table from "../ui/job-application-table/table";
-import Search from "../ui/job-application-table/search";
-import AddApplication from "../ui/crud-applications/add-application";
-import { fetchAllUserApplications } from "../lib/data";
+import Table from "../../ui/job-application-table/table";
+import Search from "../../ui/job-application-table/search";
+import AddApplication from "../../ui/crud-applications/add-application";
+import { fetchAllUserApplications } from "../../lib/data";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../api/auth/[...nextauth]/route";
-import Unauthorized from "../ui/job-application-table/unauthorized";
+import { authOptions } from "../../api/auth/[...nextauth]/route";
+import Unauthorized from "../../ui/job-application-table/unauthorized";
 
 export const metadata: Metadata = {
   title: "Job Applications",
