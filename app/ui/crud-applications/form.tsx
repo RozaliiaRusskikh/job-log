@@ -52,6 +52,7 @@ const Form: React.FC<FormProps> = ({
         {type} Job Application
       </h2>
       <form
+        id="applicationForm"
         onSubmit={closeModal}
         action={type === "edit" ? onUpdate : onCreate}
         className="w-full"

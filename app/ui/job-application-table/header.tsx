@@ -7,6 +7,7 @@ import profile from "@/public/profile.svg";
 import { useState } from "react";
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
 import { signOut, useSession } from "next-auth/react";
+import { ChatButton } from "../ai-chat-box/chat-button";
 
 const Header = () => {
   const [isMenuOpened, setIsMenuOpen] = useState(false);
@@ -23,7 +24,8 @@ const Header = () => {
         <Menu />
       </div>
       {session && (
-        <div className="relative self-center">
+        <div className="relative self-center flex gap-10">
+          <ChatButton />
           <Image
             onClick={toggleProfileInfo}
             src={session?.user ? session?.user.image : profile}

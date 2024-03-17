@@ -135,6 +135,7 @@ export default function Row({ data, value }: RowProps) {
       >
         <div>
           <form
+            id="deleteForm"
             action={onDelete}
             onSubmit={closeDeleteModal}
             className="flex flex-col items-center gap-5"
