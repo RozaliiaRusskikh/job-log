@@ -49,7 +49,7 @@ export async function updateApplication(
     );
 
     await prisma.$transaction(async (tx) => {
-      const application = await prisma.application.update({
+      const application = await tx.application.update({
         data: {
           position: position,
           company: company,

@@ -26,7 +26,7 @@ export async function getEmbeddingForApplication(
   position: string,
   jobDescriptionLink: string,
   note: string | undefined,
-  status: string | "APPLIED"
+  status?: string | "APPLIED"
 ) {
   return getEmbedding(
     company + "/n/n" + position + "/n/n" + jobDescriptionLink + "/n/n" + note ??
