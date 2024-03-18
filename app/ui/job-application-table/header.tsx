@@ -24,7 +24,7 @@ const Header = () => {
         <Menu />
       </div>
       {session && (
-        <div className="relative self-center flex gap-10">
+        <div className="relative self-center flex gap-2 md:gap-10">
           <ChatButton />
           <Image
             onClick={toggleProfileInfo}
