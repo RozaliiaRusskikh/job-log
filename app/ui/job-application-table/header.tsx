@@ -32,10 +32,10 @@ const Header = () => {
             alt="profile"
             width={50}
             height={50}
-            className="rounded-full cursor-pointer hover:scale-110 transition-transform md:w-[55px] md:h-[55px]"
+            className="rounded-full cursor-pointer hover:scale-110 transition-transform w-[35px] h-[35px] md:w-[55px] md:h-[55px]"
           />
           {isMenuOpened && (
-            <div className="bg-slate-100 rounded-md p-2 absolute right-0 min-w-[110px] text-center opacity-80">
+            <div className="bg-slate-100 rounded-md p-1 absolute left-2/3 md:left-1/2 md:bottom-[-55%] bottom-[-95%] md:min-w-[110px] text-center opacity-85">
               <button
                 onClick={async () => {
                   await signOut({ callbackUrl: "/" });
@@ -44,7 +44,7 @@ const Header = () => {
                 className="font-bold cursor-pointer text-sm md:text-base hover:text-emerald-700 transition-colors"
               >
                 <ArrowLeftEndOnRectangleIcon className="w-[16px] h-[16px] inline mr-1" />
-                Sign Out
+                <span className="hidden md:inline">Sign Out</span>
               </button>
             </div>
           )}

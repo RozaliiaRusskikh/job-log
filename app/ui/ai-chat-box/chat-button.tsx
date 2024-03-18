@@ -13,7 +13,7 @@ export function ChatButton() {
         <span className="hidden md:inline group-hover:text-emerald-100 transition-colors">
           AI Chat
         </span>
-        <TbRobot className="w-[30px] h-[30px] md:ml-1 inline text-emerald-400 md:text-white group-hover:text-white md:group-hover:text-slate-200 transition-all md:group-hover:animate-bounce" />
+        <TbRobot className="w-[30px] h-[30px] md:ml-1 inline text-emerald-500 md:text-white group-hover:text-white md:group-hover:text-slate-200 transition-all md:group-hover:animate-bounce" />
       </button>
       <ChatBox open={chatBoxOpen} onClose={() => setChatBoxOpen(false)} />
     </>
