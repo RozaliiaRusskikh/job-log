@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Modal from "react-modal";
 import { useEffect } from "react";
-import { XMarkIcon } from "@heroicons/react/24/outline";
+import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useMediaQuery } from "react-responsive";
 
 interface CustomModalProps {
@@ -46,8 +46,8 @@ const CustomModal: React.FC<CustomModalProps> = ({
       contentLabel={label}
       style={isTablet ? customTabletStyles : customMobileStyles}
     >
-      <XMarkIcon
-        className="cursor-pointer h-[30px] w-[30px] hover:text-gray-500 text-rose-500 transition-colors absolute right-0 mr-2"
+      <XCircleIcon
+        className="cursor-pointer h-[40px] w-[40px] hover:text-gray-500 text-rose-600 transition-colors absolute right-0 mr-2"
         onClick={onClose}
       />
       {children}

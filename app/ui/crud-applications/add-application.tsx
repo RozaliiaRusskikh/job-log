@@ -15,7 +15,7 @@ const AddApplication = () => {
 
   return (
     <>
-      <div className="fixed bottom-5 right-7 md:bottom-10 md:right-12">
+      <div className="fixed bottom-2 right-1">
         <button
           onClick={toggleModal}
           className="relative rounded-full shadow-md bg-slate-100 opacity-80 group"
