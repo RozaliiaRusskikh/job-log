@@ -84,6 +84,16 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
                 />
               </div>
             )}
+            {error && (
+              <div className="text-rose-600">
+                <ChatMessage
+                  message={{
+                    role: "assistant",
+                    content: "Something went wrong. Please try again.",
+                  }}
+                />
+              </div>
+            )}
           </div>
         </div>
         <form onSubmit={handleSubmit} className="m-3 flex gap-1">
