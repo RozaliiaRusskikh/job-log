@@ -7,7 +7,7 @@ export function ChatButton() {
   return (
     <>
       <button
-        className="flex group text-white font-bold md:border-2 md:rounded-full px-1 md:px-2 md:py-3 hover:border-emerald-400 transition-colors"
+        className="flex group text-white font-bold md:border-2 md:rounded-full px-1 md:px-2 md:py-3 border-[#848081] hover:border-emerald-400 transition-colors"
         onClick={() => setChatBoxOpen(true)}
       >
         <span className="hidden md:inline group-hover:text-emerald-100 transition-colors">

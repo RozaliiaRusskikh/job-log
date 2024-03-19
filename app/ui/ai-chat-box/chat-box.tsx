@@ -1,3 +1,5 @@
+"use client";
+
 import { useChat } from "ai/react";
 import clsx from "clsx";
 import { XCircleIcon } from "@heroicons/react/24/outline";
@@ -5,6 +7,7 @@ import { TbRobot } from "react-icons/tb";
 import { Message } from "ai";
 import Image from "next/image";
 import profile from "@/public/profile.svg";
+import { useSession } from "next-auth/react";
 
 interface ChatBoxProps {
   open: boolean;
@@ -35,13 +38,13 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
       <button onClick={onClose} className="mb-1 ms-auto block">
         <XCircleIcon className="w-[40px] h-[40px] text-rose-500  hover:text-gray-500 transition-colors" />
       </button>
-      <div className="flex h-[550px] overflow-y-auto md:h-[600px] flex-col rounded-lg bg-gray-100 p-1 md:p-2 border shadow-xl">
-        <div className="flex flex-col min-h-[85%]">
-          <span className="font-semibold p-1 text-center border-b border-slate-300 pb-3">
+      <div className="flex h-[550px] md:h-[600px] flex-col rounded-lg bg-gray-100 p-1 md:p-2 border shadow-xl">
+        <div className="flex flex-col h-full mt-3 px-3 overflow-y-auto">
+          <span className="font-semibold p-1 text-center border-b border-slate-300 pb-3 italic">
             Chat with the AI assistant{" "}
             <TbRobot className="inline text-emerald-500 w-[30px] h-[30px]" />{" "}
             about your existing job applications, get summaries and helpful
-            tips.
+            recommendations:
           </span>
           <div>
             {messages.map((message) => {
@@ -70,9 +73,12 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
 
 function ChatMessage({ message: { role, content } }: { message: Message }) {
   const isAIMessage = role === "assistant";
+
+  const { data: session } = useSession();
+
   return (
     <article
-      className={clsx("my-3 flex items-center", {
+      className={clsx("my-3 flex items-center gap-2", {
         "justify-start me-5": isAIMessage,
         "justify-end ms-5": !isAIMessage,
       })}
@@ -83,11 +89,11 @@ function ChatMessage({ message: { role, content } }: { message: Message }) {
 
       {!isAIMessage && (
         <Image
-          src={profile}
-          alt="profile"
-          width={10}
-          height={10}
-          className="rounded-full w-[40px] h-[40px]"
+          src={session?.user ? session?.user.image : profile}
+          alt="user image"
+          width={50}
+          height={50}
+          className="rounded-full w-[40px] h-[40px] cover"
         />
       )}
       <p
