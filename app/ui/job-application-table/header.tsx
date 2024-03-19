@@ -8,6 +8,7 @@ import { useState } from "react";
 import { ArrowLeftEndOnRectangleIcon } from "@heroicons/react/24/outline";
 import { signOut, useSession } from "next-auth/react";
 import { ChatButton } from "../ai-chat-box/chat-button";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isMenuOpened, setIsMenuOpen] = useState(false);
@@ -17,6 +18,8 @@ const Header = () => {
     setIsMenuOpen((prevState) => !prevState);
   }
 
+  const pathname = usePathname();
+
   return (
     <header className="flex flex-row h-32 shrink-0 justify-between rounded-lg bg-primary p-4 md:h-44 shadow-md">
       <div className="flex flex-col justify-between">
@@ -25,7 +28,7 @@ const Header = () => {
       </div>
       {session && (
         <div className="relative self-center flex gap-2 md:gap-10">
-          <ChatButton />
+          {pathname === "/job-applications" && <ChatButton />}
           <Image
             onClick={toggleProfileInfo}
             src={session?.user ? session?.user.image : profile}
