@@ -8,6 +8,7 @@ import { Message } from "ai";
 import Image from "next/image";
 import profile from "@/public/profile.svg";
 import { useSession } from "next-auth/react";
+import { useEffect, useRef } from "react";
 
 interface ChatBoxProps {
   open: boolean;
@@ -25,6 +26,15 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
     error,
   } = useChat();
 
+  const inputRef = useRef<HTMLInputElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   return (
     <div
       className={clsx(
@@ -39,10 +49,13 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
         <XCircleIcon className="w-[40px] h-[40px] text-rose-500  hover:text-gray-500 transition-colors" />
       </button>
       <div className="flex h-[550px] md:h-[600px] flex-col rounded-lg bg-gray-100 p-1 md:p-2 border shadow-xl">
-        <div className="flex flex-col h-full mt-3 px-3 overflow-y-auto">
-          <span className="font-semibold p-1 text-center border-b border-slate-300 pb-3 italic">
+        <div
+          ref={scrollRef}
+          className="flex flex-col h-full mt-3 px-3 overflow-y-auto"
+        >
+          <span className="font-semibold p-1 text-center border-b border-slate-300 pb-3 italic text-gray-700">
             Chat with the AI assistant{" "}
-            <TbRobot className="inline text-emerald-500 w-[30px] h-[30px]" />{" "}
+            <TbRobot className="inline text-emerald-600 w-[30px] h-[30px]" />{" "}
             about your existing job applications, get summaries and helpful
             recommendations:
           </span>
@@ -54,6 +67,7 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
         </div>
         <form onSubmit={handleSubmit} className="m-3 flex gap-1">
           <input
+            ref={inputRef}
             value={input}
             onChange={handleInputChange}
             placeholder="Ask me about your job applications..."

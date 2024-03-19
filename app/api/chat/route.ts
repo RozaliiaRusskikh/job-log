@@ -35,7 +35,7 @@ export async function POST(req: Request) {
     const systemMessage: ChatCompletionMessage = {
       role: "assistant",
       content:
-        "You are an intellegent job application taking app. You answer the user's question based on their existing job applications." +
+        "You are an intellegent job application taking app. You answer the user's question based on their existing job applications. Also you give some recommendations on job search" +
         "The relevant job applications for this query are:\n" +
         relevantApplications
           ?.map(
