@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { XCircleIcon } from "@heroicons/react/24/outline";
 import { TbRobot } from "react-icons/tb";
 import { Message } from "ai";
+import Image from "next/image";
+import profile from "@/public/profile.svg";
 
 interface ChatBoxProps {
   open: boolean;
@@ -34,8 +36,8 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
         <XCircleIcon className="w-[40px] h-[40px] text-rose-500  hover:text-gray-500 transition-colors" />
       </button>
       <div className="flex h-[550px] overflow-y-auto md:h-[600px] flex-col rounded-lg bg-gray-100 p-1 md:p-2 border shadow-xl">
-        <div className="flex flex-col h-full">
-          <span className="font-semibold p-1 text-center">
+        <div className="flex flex-col min-h-[85%]">
+          <span className="font-semibold p-1 text-center border-b border-slate-300 pb-3">
             Chat with the AI assistant{" "}
             <TbRobot className="inline text-emerald-500 w-[30px] h-[30px]" />{" "}
             about your existing job applications, get summaries and helpful
@@ -67,10 +69,35 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
 }
 
 function ChatMessage({ message: { role, content } }: { message: Message }) {
+  const isAIMessage = role === "assistant";
   return (
-    <article className="mb-3">
-      <div>{role}</div>
-      <div>{content}</div>
+    <article
+      className={clsx("my-3 flex items-center", {
+        "justify-start me-5": isAIMessage,
+        "justify-end ms-5": !isAIMessage,
+      })}
+    >
+      {isAIMessage && (
+        <TbRobot className="text-emerald-500 mt-2 shrink-0 w-[35px] h-[35px]" />
+      )}
+
+      {!isAIMessage && (
+        <Image
+          src={profile}
+          alt="profile"
+          width={10}
+          height={10}
+          className="rounded-full w-[40px] h-[40px]"
+        />
+      )}
+      <p
+        className={clsx("whitespace-pre-line rounded-lg px-3 py-2", {
+          "bg-emerald-100": isAIMessage,
+          "bg-white": !isAIMessage,
+        })}
+      >
+        {content}
+      </p>
     </article>
   );
 }
