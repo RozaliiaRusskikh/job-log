@@ -67,34 +67,35 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
           ref={scrollRef}
           className="flex flex-col h-full mt-3 px-3 overflow-y-auto"
         >
-          <span className="font-semibold p-1 text-center border-b border-slate-300 pb-3 italic text-gray-700">
-            Chat with the AI assistant{" "}
-            <TbRobot className="inline text-emerald-600 w-[30px] h-[30px]" />{" "}
-            about your existing job applications, get summaries and helpful
-            recommendations:
-          </span>
-          <div>
-            {messages.map((message) => {
-              return <ChatMessage message={message} key={message.id} />;
-            })}
-            {isLoading && lastMessageIsUser && (
-              <div className="animate-pulse text-gray-400">
-                <ChatMessage
-                  message={{ role: "assistant", content: "I am thinking..." }}
-                />
-              </div>
-            )}
-            {error && (
-              <div className="text-rose-600">
-                <ChatMessage
-                  message={{
-                    role: "assistant",
-                    content: "Something went wrong. Please try again.",
-                  }}
-                />
-              </div>
-            )}
-          </div>
+          {messages.map((message) => {
+            return <ChatMessage message={message} key={message.id} />;
+          })}
+          {isLoading && lastMessageIsUser && (
+            <div className="animate-pulse text-gray-400">
+              <ChatMessage
+                message={{ role: "assistant", content: "I am thinking..." }}
+              />
+            </div>
+          )}
+          {error && (
+            <div className="text-rose-600">
+              <ChatMessage
+                message={{
+                  role: "assistant",
+                  content: "Something went wrong. Please try again.",
+                }}
+              />
+            </div>
+          )}
+          {!error && messages.length === 0 && (
+            <div className="flex flex-col md:flex-row h-full items-center justify-center gap-7 italic text-gray-700">
+              <TbRobot className="shrink-0 w-[50px] h-[50px] text-emerald-600 animate-bounce" />
+              <p className="w-full max-w-[75%]">
+                Chat with the AI assistant about your existing job applications,
+                get summaries and helpful recommendations
+              </p>
+            </div>
+          )}
         </div>
         <form onSubmit={handleSubmit} className="m-3 flex gap-1">
           <input
