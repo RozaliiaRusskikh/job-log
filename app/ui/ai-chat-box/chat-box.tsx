@@ -35,6 +35,12 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
     }
   }, [messages]);
 
+  useEffect(() => {
+    if (open) {
+      inputRef.current?.focus();
+    }
+  }, [open]);
+
   return (
     <div
       className={clsx(
