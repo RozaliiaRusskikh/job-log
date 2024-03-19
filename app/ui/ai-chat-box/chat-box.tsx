@@ -1,6 +1,7 @@
 import { useChat } from "ai/react";
 import clsx from "clsx";
 import { XCircleIcon } from "@heroicons/react/24/outline";
+import { TbRobot } from "react-icons/tb";
 
 interface ChatBoxProps {
   open: boolean;
@@ -32,13 +33,20 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
         <XCircleIcon className="w-[40px] h-[40px] text-rose-500  hover:text-gray-500 transition-colors" />
       </button>
       <div className="flex h-[550px] md:h-[600px] flex-col rounded-lg bg-gray-100 p-1 md:p-2 border shadow-xl">
-        <div className="h-full">Messages</div>
+        <div className="h-full text-center">
+          <span className="font-semibold p-1">
+            Chat with the AI assistant{" "}
+            <TbRobot className="inline text-emerald-500 w-[30px] h-[30px]" />{" "}
+            about your existing job applications, get summaries and helpful
+            tips.
+          </span>
+        </div>
         <form onSubmit={handleSubmit} className="m-3 flex gap-1">
           <input
             value={input}
             onChange={handleInputChange}
-            placeholder="Ask something..."
-            className="p-3 rounded-xl w-full border border-slate-300 outline-2 outline-emerald-500 placeholder:text-gray-500"
+            placeholder="Ask me about your job applications..."
+            className="truncate p-3 rounded-xl w-full border border-slate-300 outline-2 outline-emerald-500 placeholder:text-gray-500"
           ></input>
           <button
             type="submit"
