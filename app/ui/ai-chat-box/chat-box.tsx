@@ -47,6 +47,8 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
     onClose();
   }
 
+  const lastMessageIsUser = messages[messages.length - 1]?.role === "user";
+
   return (
     <div
       className={clsx(
@@ -75,6 +77,13 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
             {messages.map((message) => {
               return <ChatMessage message={message} key={message.id} />;
             })}
+            {isLoading && lastMessageIsUser && (
+              <div className="animate-pulse text-gray-400">
+                <ChatMessage
+                  message={{ role: "assistant", content: "I am thinking..." }}
+                />
+              </div>
+            )}
           </div>
         </div>
         <form onSubmit={handleSubmit} className="m-3 flex gap-1">
@@ -105,7 +114,11 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
   );
 }
 
-function ChatMessage({ message: { role, content } }: { message: Message }) {
+function ChatMessage({
+  message: { role, content },
+}: {
+  message: Pick<Message, "role" | "content">;
+}) {
   const isAIMessage = role === "assistant";
 
   const { data: session } = useSession();
