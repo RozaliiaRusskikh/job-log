@@ -3,6 +3,7 @@
 import { useChat } from "ai/react";
 import clsx from "clsx";
 import { XCircleIcon } from "@heroicons/react/24/outline";
+import { TrashIcon } from "@heroicons/react/24/outline";
 import { TbRobot } from "react-icons/tb";
 import { Message } from "ai";
 import Image from "next/image";
@@ -41,6 +42,11 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
     }
   }, [open]);
 
+  function handleCloseChat() {
+    setMessages([]);
+    onClose();
+  }
+
   return (
     <div
       className={clsx(
@@ -51,7 +57,7 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
         }
       )}
     >
-      <button onClick={onClose} className="mb-1 ms-auto block">
+      <button onClick={handleCloseChat} className="mb-1 ms-auto block">
         <XCircleIcon className="w-[40px] h-[40px] text-rose-500  hover:text-gray-500 transition-colors" />
       </button>
       <div className="flex h-[550px] md:h-[600px] flex-col rounded-lg bg-gray-100 p-1 md:p-2 border shadow-xl">
@@ -81,9 +87,17 @@ export default function ChatBox({ open, onClose }: ChatBoxProps) {
           ></input>
           <button
             type="submit"
-            className="rounded-xl p-3 min-w-20 bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 border border-emerald-600 focus:hover:bg-emerald-600 uppercase"
+            className="rounded-xl p-3 min-w-20 bg-emerald-500 text-white font-bold transition-colors hover:bg-emerald-600 border border-emerald-600 focus:hover:bg-emerald-600 uppercase shadow-md"
           >
             Send
+          </button>
+          <button
+            onClick={() => setMessages([])}
+            type="button"
+            title="Clear chat"
+            className="group border border-slate-300 px-2 rounded-xl shrink-0 hover:bg-slate-200 shadow-md"
+          >
+            <TrashIcon className="w-[25px] h-[25px] text-gray-500 group-hover:text-emerald-600 transition-colors" />
           </button>
         </form>
       </div>
