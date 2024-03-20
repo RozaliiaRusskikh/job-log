@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { useState, useEffect, ChangeEvent } from "react";
-import { XCircleIcon } from "@heroicons/react/24/outline";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -12,7 +12,6 @@ const Search = () => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
-  const router = useRouter();
 
   useEffect(() => {
     setSearchTerm(searchParams.get("query")?.toString() || "");
@@ -35,6 +34,13 @@ const Search = () => {
     handleSearch(value);
   };
 
+  const handleClearInput = () => {
+    const params = new URLSearchParams(searchParams);
+    setSearchTerm("");
+    params.delete("query");
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   return (
     <div className="relative flex flex-1 mb-3 xl:w-2/3">
       <label htmlFor="search" className="sr-only">
@@ -50,6 +56,12 @@ const Search = () => {
         value={searchTerm}
       />
       <MagnifyingGlassIcon className="absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+      {searchTerm && (
+        <XMarkIcon
+          onClick={handleClearInput}
+          className="absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-rose-500"
+        />
+      )}
     </div>
   );
 };
