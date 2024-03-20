@@ -7,6 +7,6 @@ export type ApplicationProp = {
   note: string | null;
   jobDescriptionLink: string;
   createdAt: Date;
-  updateAt: Date;
+  updateAt?: Date;
   userId: string;
 };

@@ -20,7 +20,7 @@ export async function POST(req: Request) {
 
     const vectorQueryResponse = await applicationsIndex.query({
       vector: embedding,
-      topK: 4, //we can add more to find fore relevan job applications
+      topK: 20, //we can add more to find fore relevan job applications
       filter: { userId },
     });
 

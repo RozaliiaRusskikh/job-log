@@ -57,6 +57,7 @@ export default function Row({ data, value }: RowProps) {
           <a
             className="cursor-pointer decoration-2 decoration-emerald-500 underline hover:text-emerald-600 transition-colors"
             target="_blank"
+            title="Read job description"
             href={jobDescriptionLink}
           >
             {" "}

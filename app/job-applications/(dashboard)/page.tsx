@@ -11,10 +11,16 @@ export const metadata: Metadata = {
   title: "Job Applications",
 };
 
-const JobApplications = async () => {
+const JobApplications = async ({
+  searchParams,
+}: {
+  searchParams?: { query?: string };
+}) => {
   const session = await getServerSession(authOptions);
 
   const applications = await fetchAllUserApplications();
+
+  const query = searchParams?.query || "";
 
   if (!session) {
     return <Unauthorized />;
@@ -29,7 +35,7 @@ const JobApplications = async () => {
         {!!applications?.length ? (
           <>
             <Search />
-            <Table applications={applications as any} />
+            <Table query={query} />
           </>
         ) : (
           <p className="text-center py-3 italic h-screen">

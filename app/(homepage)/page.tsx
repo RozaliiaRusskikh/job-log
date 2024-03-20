@@ -51,8 +51,8 @@ export default function Home() {
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-3/5 md:px-16">
           <h1 className={`text-xl text-primary md:text-3xl md:leading-normal`}>
             <strong>Welcome to JobLogs</strong> - the simple way to stay on top
-            of your job applications, manage them without the need of
-            spreadsheets, and gain valuable insights into your job search
+            of your job applications, manage them without spreadsheets, and gain
+            valuable insights from our metrics and AI assistant
           </h1>
           <button
             onClick={() => socialAction("google")}

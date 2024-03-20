@@ -2,10 +2,22 @@ import Row from "./table-row";
 import { ApplicationProp } from "@/app/lib/definitions";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { ChevronUpIcon } from "@heroicons/react/24/outline";
+import { fetchFilteredApplications } from "../../lib/data";
+import { MagnifyingGlassMinusIcon } from "@heroicons/react/24/outline";
 
-const Table: React.FC<{ applications: ApplicationProp[] }> = ({
-  applications,
-}) => {
+export default async function Table({ query }: { query?: string }) {
+  const applications = await fetchFilteredApplications(query);
+
+  if (applications.length === 0) {
+    return (
+      <p className="text-center italic pt-3 text-gray-700">
+        Sorry, we couldn't find any job applications related to your entered
+        query. Please try another search
+        <MagnifyingGlassMinusIcon className="text-emerald-600 inline w-[30px] h-[30px] ml-1" />
+      </p>
+    );
+  }
+
   return (
     <table className="table-auto border-collapse border border-slate-400 shadow-xl w-full text-sm md:text-base">
       <thead className=" bg-gray-100 text-left">
@@ -47,17 +59,17 @@ const Table: React.FC<{ applications: ApplicationProp[] }> = ({
         </tr>
       </thead>
       <tbody>
-        {applications.map((application: ApplicationProp) => {
-          return (
-            <Row
-              key={application.id}
-              data={application}
-              value={application.id}
-            />
-          );
-        })}
+        {!!applications?.length &&
+          applications.map((application: ApplicationProp) => {
+            return (
+              <Row
+                key={application.id}
+                data={application}
+                value={application.id}
+              />
+            );
+          })}
       </tbody>
     </table>
   );
-};
-export default Table;
+}
