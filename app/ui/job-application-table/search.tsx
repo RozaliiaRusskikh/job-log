@@ -3,7 +3,8 @@
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
-import { useState, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent } from "react";
+import { XCircleIcon } from "@heroicons/react/24/outline";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -11,9 +12,13 @@ const Search = () => {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
+  const router = useRouter();
+
+  useEffect(() => {
+    setSearchTerm(searchParams.get("query")?.toString() || "");
+  }, []);
 
   const handleSearch = useDebouncedCallback((term: string) => {
-    console.log(`Searching... ${term}`);
     const params = new URLSearchParams(searchParams);
 
     if (term) {
@@ -22,7 +27,7 @@ const Search = () => {
       params.delete("query");
     }
     replace(`${pathname}?${params.toString()}`);
-  }, 500);
+  }, 300);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
