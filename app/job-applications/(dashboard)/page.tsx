@@ -35,7 +35,7 @@ const JobApplications = async ({
         {!!applications?.length ? (
           <>
             <Search />
-            <Table query={query} />
+            <Table query={query} applications={applications} />
           </>
         ) : (
           <p className="text-center py-3 italic h-screen">

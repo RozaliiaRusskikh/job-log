@@ -4,6 +4,7 @@ import prisma from "@/app/lib/prismadb";
 import getCurrentUser from "./actions/get-current-user";
 import { getEmbedding } from "./openai";
 
+//also it is used for sorting by date in desc order
 export async function fetchAllUserApplications() {
   try {
     const user = await getCurrentUser();
@@ -13,6 +14,63 @@ export async function fetchAllUserApplications() {
       },
       orderBy: {
         createdAt: "desc",
+      },
+      include: { user: true },
+    });
+    return applications;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch application data.");
+  }
+}
+
+export async function fetchSortedApplicationsByAscDate() {
+  try {
+    const user = await getCurrentUser();
+    const applications = await prisma.application.findMany({
+      where: {
+        userId: user?.id ?? undefined,
+      },
+      orderBy: {
+        createdAt: "asc",
+      },
+      include: { user: true },
+    });
+    return applications;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch application data.");
+  }
+}
+
+export async function fetchSortedApplicationsByAscStatus() {
+  try {
+    const user = await getCurrentUser();
+    const applications = await prisma.application.findMany({
+      where: {
+        userId: user?.id ?? undefined,
+      },
+      orderBy: {
+        status: "asc",
+      },
+      include: { user: true },
+    });
+    return applications;
+  } catch (error) {
+    console.error("Database Error:", error);
+    throw new Error("Failed to fetch application data.");
+  }
+}
+
+export async function fetchSortedApplicationsByDescStatus() {
+  try {
+    const user = await getCurrentUser();
+    const applications = await prisma.application.findMany({
+      where: {
+        userId: user?.id ?? undefined,
+      },
+      orderBy: {
+        status: "desc",
       },
       include: { user: true },
     });
