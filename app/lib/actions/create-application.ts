@@ -69,6 +69,7 @@ export async function createApplication(formData: FormData) {
     });
 
     revalidatePath("/job-applications");
+
     return { message: "Job application has been added" };
   } catch (error) {
     return { message: "There is an error adding a job application" };

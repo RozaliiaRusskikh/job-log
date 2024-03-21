@@ -19,6 +19,7 @@ export async function deleteApplication(formData: FormData) {
     });
 
     revalidatePath("/job-applications");
+
     return { message: "Job application has been deleted" };
   } catch (error) {
     return { message: "There is an error deleting a job application" };

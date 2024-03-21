@@ -75,6 +75,7 @@ export async function updateApplication(
     });
 
     revalidatePath("/job-applications");
+
     return { message: "Job application has been updated" };
   } catch (error) {
     return { message: "There is an error updating a job application" };
