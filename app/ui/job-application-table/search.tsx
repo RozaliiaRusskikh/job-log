@@ -5,9 +5,12 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
 import { useState, useEffect, ChangeEvent } from "react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
+import { useRef } from "react";
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const searchParams = useSearchParams();
   const { replace } = useRouter();
@@ -37,6 +40,7 @@ const Search = () => {
   const handleClearInput = () => {
     const params = new URLSearchParams(searchParams);
     setSearchTerm("");
+    inputRef.current?.focus();
     params.delete("query");
     replace(`${pathname}?${params.toString()}`);
   };
@@ -47,6 +51,7 @@ const Search = () => {
         Search
       </label>
       <input
+        ref={inputRef}
         onChange={handleChange}
         className="truncate block w-full rounded-md border border-slate-300 py-[9px] pl-8 md:pl-10 text-sm md:text-[14.5px] outline-2 placeholder:text-gray-500 outline-emerald-500"
         type="text"
@@ -59,7 +64,7 @@ const Search = () => {
       {searchTerm && (
         <XMarkIcon
           onClick={handleClearInput}
-          className="absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-rose-500"
+          className="absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-rose-500 cursor-pointer"
         />
       )}
     </div>
