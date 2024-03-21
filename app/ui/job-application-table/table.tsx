@@ -114,7 +114,7 @@ export default function Table({
           <tr>
             <td>
               <p className="text-center italic p-7 text-gray-700">
-                {`Sorry, we couldn't find any job applications related to "${query}". Please try another search.`}
+                {`Sorry, we couldn't find any job applications matching "${query}". Please try another search.`}
                 <MagnifyingGlassMinusIcon className="text-emerald-600 sm:inline w-[30px] h-[30px] ml-1 relative left-1/2 sm:static" />
               </p>
             </td>
