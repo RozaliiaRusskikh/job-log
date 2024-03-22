@@ -57,7 +57,7 @@ const ApplicationStatus: React.FC<{ applications: ApplicationProp[] }> = ({
         label: "percentage",
         data: percentages,
         backgroundColor: backgroundColors,
-        borderColor: backgroundColors.map((color) => color.replace("0.6", "1")), // Adjust border color
+        borderColor: backgroundColors.map((color) => color.replace("0.6", "1")),
         borderWidth: 1,
       },
     ],
