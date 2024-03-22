@@ -29,7 +29,7 @@ export default function Table({
     };
 
     filteredApplications();
-  }, [query, sortedApplications]);
+  }, [query]);
 
   return (
     <table className="table-auto border-collapse border border-slate-400 shadow-xl w-full text-sm md:text-base">

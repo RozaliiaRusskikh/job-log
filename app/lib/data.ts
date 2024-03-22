@@ -3,9 +3,11 @@
 import prisma from "@/app/lib/prismadb";
 import getCurrentUser from "./actions/get-current-user";
 import { getEmbedding } from "./openai";
+import { unstable_noStore as noStore } from "next/cache";
 
 //also it is used for sorting by date in desc order
 export async function fetchAllUserApplications() {
+  noStore();
   try {
     const user = await getCurrentUser();
     const applications = await prisma.application.findMany({
@@ -25,6 +27,7 @@ export async function fetchAllUserApplications() {
 }
 
 export async function fetchSortedApplicationsByAscDate() {
+  noStore();
   try {
     const user = await getCurrentUser();
     const applications = await prisma.application.findMany({
@@ -44,6 +47,7 @@ export async function fetchSortedApplicationsByAscDate() {
 }
 
 export async function fetchSortedApplicationsByAscStatus() {
+  noStore();
   try {
     const user = await getCurrentUser();
     const applications = await prisma.application.findMany({
@@ -63,6 +67,7 @@ export async function fetchSortedApplicationsByAscStatus() {
 }
 
 export async function fetchSortedApplicationsByDescStatus() {
+  noStore();
   try {
     const user = await getCurrentUser();
     const applications = await prisma.application.findMany({
@@ -82,6 +87,7 @@ export async function fetchSortedApplicationsByDescStatus() {
 }
 
 export async function fetchFilteredApplications(query: string | undefined) {
+  noStore();
   try {
     const user = await getCurrentUser();
     const filteredApplications = await prisma.application.findMany({

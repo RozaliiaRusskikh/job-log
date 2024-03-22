@@ -29,7 +29,7 @@ const Search = () => {
       params.delete("query");
     }
     replace(`${pathname}?${params.toString()}`);
-  }, 300);
+  }, 200);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
