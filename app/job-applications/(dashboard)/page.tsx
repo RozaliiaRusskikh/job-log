@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Table from "../../ui/job-application-table/table";
 import Search from "../../ui/job-application-table/search";
-import AddApplication from "../../ui/crud-applications/add-application";
 import { fetchAllUserApplications } from "../../lib/data";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../../api/auth/[...nextauth]/route";
@@ -44,7 +43,6 @@ const JobApplications = async ({
           </p>
         )}
       </div>
-      <AddApplication />
     </section>
   );
 };

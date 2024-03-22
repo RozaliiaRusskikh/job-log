@@ -5,8 +5,13 @@ import { useState } from "react";
 import CustomModal from "../job-application-table/modal";
 import Form from "./form";
 import { closeModal } from "@/app/lib/helper";
+import { ApplicationProp } from "@/app/lib/definitions";
 
-const AddApplication = () => {
+const AddApplication = ({
+  applications,
+}: {
+  applications: ApplicationProp[];
+}) => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const toggleModal = () => {
@@ -31,7 +36,11 @@ const AddApplication = () => {
         onClose={toggleModal}
         label="Add a job application"
       >
-        <Form type="add" closeModal={() => closeModal(setIsModalOpen)} />
+        <Form
+          type="add"
+          closeModal={() => closeModal(setIsModalOpen)}
+          applications={applications}
+        />
       </CustomModal>
     </>
   );
