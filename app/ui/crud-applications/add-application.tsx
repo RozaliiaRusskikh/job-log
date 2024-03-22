@@ -7,11 +7,7 @@ import Form from "./form";
 import { closeModal } from "@/app/lib/helper";
 import { ApplicationProp } from "@/app/lib/definitions";
 
-const AddApplication = ({
-  applications,
-}: {
-  applications: ApplicationProp[];
-}) => {
+const AddApplication = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   const toggleModal = () => {
