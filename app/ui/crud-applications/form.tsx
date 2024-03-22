@@ -5,14 +5,12 @@ import { updateApplication } from "@/app/lib/actions/update-application";
 import { toast } from "react-hot-toast";
 import { useFormStatus } from "react-dom";
 import { PaperClipIcon } from "@heroicons/react/24/outline";
-import { fetchAllUserApplications } from "@/app/lib/data";
 
 interface FormProps {
   type: string;
   initialValues?: ApplicationProp;
   closeModal: () => void;
   value?: string;
-  applications: ApplicationProp[];
 }
 
 const Form: React.FC<FormProps> = ({
@@ -20,12 +18,10 @@ const Form: React.FC<FormProps> = ({
   initialValues,
   closeModal,
   value,
-  applications,
 }) => {
   async function onCreate(formData: FormData) {
     try {
       const result = await createApplication(formData);
-      applications = await fetchAllUserApplications();
       if (result.message.includes("error")) {
         toast.error(result.message);
       } else {
